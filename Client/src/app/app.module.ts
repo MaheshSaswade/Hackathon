@@ -7,6 +7,8 @@ import { FormsModule } from '@angular/forms';
 import { from } from 'rxjs';
 
 import { AppComponent } from './app.component';
+import { CreateEmpComponent } from './components/create-emp/create-emp.component';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { InsertReviewComponent } from './components/review/insert-review/insert-review.component';
 import { EmpDashboardComponent } from './components/emp-dashboard/emp-dashboard.component';
 import { LoginComponent } from './components/login/login.component';
@@ -20,6 +22,7 @@ import { AllReviewsListComponent } from './components/hr-dashboard/all-reviews-l
 
 @NgModule({
   declarations: [
+    CreateEmpComponent,
     AppComponent,
     InsertReviewComponent,
     EmpDashboardComponent,
@@ -31,6 +34,7 @@ import { AllReviewsListComponent } from './components/hr-dashboard/all-reviews-l
     AllReviewsListComponent
   ],
   imports: [
+    BsDatepickerModule.forRoot(),
     BrowserModule,
     FormsModule,
     HttpClientModule,
