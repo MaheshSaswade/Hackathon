@@ -84,6 +84,14 @@ const empSchema = new mongoose.Schema({
     }
 })
 
+empSchema.methods.generateAuthToken = async function () {
+    const emp = this
+    const token = jwt.sign({ _id: emp._id.toString() }, 'WeAreMiracalWorkers!')
+    emp.token = token
+    await emp.save()
+    return token
+}
+
 const Employee = mongoose.model('Employee', empSchema)
 module.exports = Employee
 
