@@ -13,13 +13,19 @@ import { EmpDashboardComponent } from './components/emp-dashboard/emp-dashboard.
 import { LoginComponent } from './components/login/login.component';
 import { CollapseModule } from 'ngx-bootstrap/collapse';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HrDashboardComponent } from './components/hr-dashboard/hr-dashboard.component';
+import { ViewProfileComponent } from './components/view-profile/view-profile.component';
+import { ViewReviewsComponent } from './components/view-reviews/view-reviews.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     InsertReviewComponent,
     EmpDashboardComponent,
-    LoginComponent
+    LoginComponent,
+    HrDashboardComponent,
+    ViewProfileComponent,
+    ViewReviewsComponent
   ],
   imports: [
     BrowserModule,
@@ -27,10 +33,19 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HttpClientModule,
     RouterModule.forRoot([
     {
-      path : 'app-emp-dashboard', component : EmpDashboardComponent
+        path: 'login', component: LoginComponent
     },
     {
-      path: 'login', component: LoginComponent
+      path : 'emp-dash', component : EmpDashboardComponent
+    },
+    {
+      path: 'hr-dash', component : HrDashboardComponent
+    },
+    {
+      path: 'viewprofile', component: ViewProfileComponent
+    },
+    {
+      path: 'viewreviews', component: ViewReviewsComponent 
     }
     
   ]),
