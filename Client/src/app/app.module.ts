@@ -19,6 +19,8 @@ import { ViewProfileComponent } from './components/view-profile/view-profile.com
 import { ViewReviewsComponent } from './components/view-reviews/view-reviews.component';
 import { ViewStatsComponent } from './components/hr-dashboard/view-stats/view-stats.component';
 import { AllReviewsListComponent } from './components/hr-dashboard/all-reviews-list/all-reviews-list.component';
+import { ManageEmpComponent } from './components/hr-dashboard/manage-emp/manage-emp.component';
+import { ManageReviewComponent } from './components/hr-dashboard/manage-review/manage-review.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,9 @@ import { AllReviewsListComponent } from './components/hr-dashboard/all-reviews-l
     ViewProfileComponent,
     ViewReviewsComponent,
     ViewStatsComponent,
-    AllReviewsListComponent
+    AllReviewsListComponent,
+    ManageEmpComponent,
+    ManageReviewComponent
   ],
   imports: [
     BsDatepickerModule.forRoot(),
@@ -59,6 +63,12 @@ import { AllReviewsListComponent } from './components/hr-dashboard/all-reviews-l
     },
     {
       path: 'allreviewslist', component: AllReviewsListComponent
+    },
+    {
+      path: 'manageemp', component: ManageEmpComponent
+    },
+    {
+      path: 'managereview', component: ManageReviewComponent
     }
   ]),
     CollapseModule.forRoot(),
