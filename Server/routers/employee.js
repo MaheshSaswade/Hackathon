@@ -1,6 +1,6 @@
 const express = require('express')
 const Employee = require('../models/emp')
-//const cors = require('cors')
+// const cors = require('cors')
 const router = new express.Router()
 
 router.post('/employee',async (req,res) => {

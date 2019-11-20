@@ -6,12 +6,12 @@
     <div class="d-flex" id="wrapper">
       <!-- Sidebar -->
       <div class="bg-light border-right" id="sidebar-wrapper" >
-        <div class="sidebar-heading"> Review System </div>
+        <div class="sidebar-heading"> <h4> <strong> Review System </strong> </h4></div>
         <div class="list-group list-group-flush" id="collapseBasic" [collapse]="!isCollapsed" [isAnimated]="true">
-          <a href="#" class="list-group-item list-group-item-action bg-light">Review Statistics</a>
+          <a [routerLink]="['/viewstats']" class="list-group-item list-group-item-action bg-light">Review Statistics</a>
           <a href="#" class="list-group-item list-group-item-action bg-light">Manage Employee Details</a>
           <a href="#" class="list-group-item list-group-item-action bg-light">Manage Reviews</a>
-          <a href="#" class="list-group-item list-group-item-action bg-light">Reviews Lists</a>
+          <a [routerLink]="['/allreviewslist']" class="list-group-item list-group-item-action bg-light">Reviews Lists</a>
           <a href="#" class="list-group-item list-group-item-action bg-light">Reviews schema</a>
         </div>
       </div>
@@ -42,9 +42,10 @@
         </nav>
   
         <div class="container-fluid">
-          <h1 class="mt-4">Dashboard</h1>
-          
+          <h1 class="mt-4" style="margin-left:1em;">Dashboard</h1>
         </div>
+
+        <router-outlet></router-outlet>
       </div>
       <!-- /#page-content-wrapper -->
   
