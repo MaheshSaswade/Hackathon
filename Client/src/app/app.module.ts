@@ -10,6 +10,8 @@ import { AppComponent } from './app.component';
 import { InsertReviewComponent } from './components/review/insert-review/insert-review.component';
 import { EmpDashboardComponent } from './components/emp-dashboard/emp-dashboard.component';
 import { LoginComponent } from './components/login/login.component';
+import { CollapseModule } from 'ngx-bootstrap/collapse';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,10 @@ import { LoginComponent } from './components/login/login.component';
     {
       path: 'login', component: LoginComponent
     }
-  ])
+    
+  ]),
+    CollapseModule.forRoot(),
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent, EmpDashboardComponent, LoginComponent]

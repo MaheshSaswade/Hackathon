@@ -1,6 +1,7 @@
 const mongoose = require('mongoose')
+const validator=require('validator')
 
-const Review = mongoose.model('Review', {
+const ReviewSchema = new mongoose.Schema({
     review_id: {
         type: Number,
         required: true
@@ -34,5 +35,7 @@ const Review = mongoose.model('Review', {
         type: Array
     }
 })
+
+const Review = mongoose.model('Review', ReviewSchema)
 
 module.exports = Review
