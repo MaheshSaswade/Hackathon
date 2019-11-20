@@ -1,0 +1,52 @@
+
+  <title>Review System</title>
+
+<body>
+
+  <div class="d-flex" id="wrapper">
+    <!-- Sidebar -->
+    <div class="bg-light border-right" id="sidebar-wrapper" >
+      <div class="sidebar-heading"> Review System </div>
+      <div class="list-group list-group-flush" id="collapseBasic" [collapse]="!isCollapsed" [isAnimated]="true">
+        <a [routerLink]="['/viewprofile']" class="list-group-item list-group-item-action bg-light">View Profile</a>
+        <a [routerLink]="['/viewtree']" routerLinkActive="router-link-active"  class="list-group-item list-group-item-action bg-light">View Tree</a>
+        <a [routerLink]="['/viewreviews']" routerLinkActive="router-link-active"  class="list-group-item list-group-item-action bg-light">View Reviews</a>
+        
+      </div>
+    </div>
+    <!-- /#sidebar-wrapper -->
+
+    <!-- Page Content -->
+    <div id="page-content-wrapper">
+
+      <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+        <button class="btn btn-primary" id="menu-toggle" (click)="isCollapsed = !isCollapsed"
+        [attr.aria-expanded]="!isCollapsed" aria-controls="collapseBasic">Menu</button>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Emp Name <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <button class="btn btn-primary" href="#">Logout</button>
+            </li>
+            
+          </ul>
+        </div>
+      </nav>
+
+      <div class="container-fluid">
+        <h1 class="mt-4">Dashboard</h1>
+        </div>
+        <router-outlet></router-outlet>
+    </div>
+    <!-- /#page-content-wrapper -->
+  </div>
+
+</body>
+
