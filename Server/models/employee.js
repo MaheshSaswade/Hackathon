@@ -49,7 +49,7 @@ const empSchema = new mongoose.Schema({
         type: Number,
         required: true,
         minlength: 10,
-        trim: true,
+        trim: true
    
     },
     gender:{
@@ -81,11 +81,9 @@ const empSchema = new mongoose.Schema({
 
 empSchema.methods.generateAuthToken = async function () {
     const emp = this
-    const token = jwt.sign({ _id: emp._id.toString() }, 'IamAnkitaYadav')
-
-   emp.token = token
+    const token = jwt.sign({ _id: emp._id.toString() }, 'WeAreMiracalWorkers!')
+    emp.token = token
     await emp.save()
-
     return token
 }
 
