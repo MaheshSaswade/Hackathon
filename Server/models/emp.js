@@ -50,9 +50,9 @@ const empSchema = new mongoose.Schema({
         minlength: 10,
         trim: true,
         validate(value){
-                    if (value > 10) {
-                        throw new Error('MoNo must be a 10 digit number')
-                    }
+            if (value > 10) {
+                throw new Error('MoNo must be a 10 digit number')
+            }
         }    
     },
     gender:{
