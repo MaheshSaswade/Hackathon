@@ -1,16 +1,26 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { RouterModule } from '@angular/router';
+
 
 import { AppComponent } from './app.component';
+import { EmpDashboardComponent } from './components/emp-dashboard/emp-dashboard.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    EmpDashboardComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    RouterModule.forRoot([
+    {
+      path : 'app-emp-dashboard', component : EmpDashboardComponent
+    }
+  ])
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent, EmpDashboardComponent]
 })
+
 export class AppModule { }
