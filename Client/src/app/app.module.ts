@@ -17,6 +17,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HrDashboardComponent } from './components/hr-dashboard/hr-dashboard.component';
 import { ViewProfileComponent } from './components/view-profile/view-profile.component';
 import { ViewReviewsComponent } from './components/view-reviews/view-reviews.component';
+import { ViewStatsComponent } from './components/hr-dashboard/view-stats/view-stats.component';
+import { AllReviewsListComponent } from './components/hr-dashboard/all-reviews-list/all-reviews-list.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { ViewReviewsComponent } from './components/view-reviews/view-reviews.com
     LoginComponent,
     HrDashboardComponent,
     ViewProfileComponent,
-    ViewReviewsComponent
+    ViewReviewsComponent,
+    ViewStatsComponent,
+    AllReviewsListComponent
   ],
   imports: [
     BsDatepickerModule.forRoot(),
@@ -49,8 +53,13 @@ import { ViewReviewsComponent } from './components/view-reviews/view-reviews.com
     },
     {
       path: 'viewreviews', component: ViewReviewsComponent 
+    },
+    {
+      path: 'viewstats', component: ViewStatsComponent
+    },
+    {
+      path: 'allreviewslist', component: AllReviewsListComponent
     }
-    
   ]),
     CollapseModule.forRoot(),
     BrowserAnimationsModule
