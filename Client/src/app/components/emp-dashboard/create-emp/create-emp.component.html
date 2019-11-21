@@ -16,6 +16,7 @@
 <div class="container">
     
 <form #reg="ngForm"  (ngSubmit)="onsubmit1(reg)" ngNativeValidate>
+  <div id="rcorners2">
   <div class="mb-sm-3">
     <div class="form-row"  >
         <div class="col" >
@@ -89,7 +90,8 @@
     <div class="checkbox">
       <label><input type="checkbox" name="remember"> Remember me</label>
     </div>
-    <button type="submit"  class="btn btn-primary" >Submit</button>
+    <button type="submit" (click)="addDetails()" class="btn btn-primary" >Submit</button>
+  </div>
   </form>
 
          

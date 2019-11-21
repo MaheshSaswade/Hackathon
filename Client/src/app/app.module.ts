@@ -7,7 +7,7 @@ import { FormsModule } from '@angular/forms';
 import { from } from 'rxjs';
 
 import { AppComponent } from './app.component';
-import { CreateEmpComponent } from './components/create-emp/create-emp.component';
+import { CreateEmpComponent } from './components/emp-dashboard/create-emp/create-emp.component';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { InsertReviewComponent } from './components/review/insert-review/insert-review.component';
 import { EmpDashboardComponent } from './components/emp-dashboard/emp-dashboard.component';
@@ -21,6 +21,8 @@ import { ViewStatsComponent } from './components/hr-dashboard/view-stats/view-st
 import { AllReviewsListComponent } from './components/hr-dashboard/all-reviews-list/all-reviews-list.component';
 import { ManageEmpComponent } from './components/hr-dashboard/manage-emp/manage-emp.component';
 import { ManageReviewComponent } from './components/hr-dashboard/manage-review/manage-review.component';
+import { EmployeeService } from './services/employee.service';
+import { UpdateEmpComponent } from './components/emp-dashboard/update-emp/update-emp.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,8 @@ import { ManageReviewComponent } from './components/hr-dashboard/manage-review/m
     ViewStatsComponent,
     AllReviewsListComponent,
     ManageEmpComponent,
-    ManageReviewComponent
+    ManageReviewComponent,
+    UpdateEmpComponent
   ],
   imports: [
     BsDatepickerModule.forRoot(),
@@ -74,7 +77,7 @@ import { ManageReviewComponent } from './components/hr-dashboard/manage-review/m
     CollapseModule.forRoot(),
     BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [EmployeeService],
   bootstrap: [AppComponent, EmpDashboardComponent, LoginComponent]
 })
 
