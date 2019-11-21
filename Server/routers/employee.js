@@ -54,6 +54,8 @@ router.get('/employee/me',auth ,async (req, res) => {
 //Login with email & pwd
 
 router.post('/employee/login', async(req, res) => {
+    console.log("Welcome mahesh inside node js")
+    console.log(req.body.email)
     try {    
         const emp = await Employee.findByCred(req.body.email, req.body.password)
         const token = await emp.generateAuthToken();

@@ -10,8 +10,9 @@ export class AuthService {
   constructor(private http: HttpClient) { }
 
   getUserDetails(email, password) {
+    alert('Hii')
     // post username and password to node server
-    const url = 'http://localhost:3000/users/login'
+    const url = 'http://localhost:3000/employee/login'
     const body = {email: email, password: password}
 
     const httpOptions = {
@@ -19,7 +20,7 @@ export class AuthService {
         'Content-Type':  'application/json'
       })
     };
-    
-    return this.http.post(url, body, httpOptions).subscribe((data) => { console.log(data) });
+
+    return this.http.post(url, body, httpOptions);
   }
 }
