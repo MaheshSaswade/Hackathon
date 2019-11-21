@@ -18,7 +18,6 @@ router.patch('/emp/:id', async (req, res) =>
             if (!emp) {
                     return res.status(404).send()
             }
-    
             res.send(emp)
     } catch (e) {
             res.status(400).send(e)
@@ -96,6 +95,3 @@ router.get('/users/me', async (req, res) => {
 })
 
 module.exports = router
-
-
-

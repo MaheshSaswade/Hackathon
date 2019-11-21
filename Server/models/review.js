@@ -10,7 +10,7 @@ const ReviewSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    parameters :{
+    skills :{
         type: Array,
         required: true
     },
@@ -24,11 +24,11 @@ const ReviewSchema = new mongoose.Schema({
         required: true
     },
     create_date : {
-        type: Date,
+        type: String,
         required: true
     },
     deadline_date : {
-        type: Date,
+        type: String,
         required: true
     },
     reviewer : {
