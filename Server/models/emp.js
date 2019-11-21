@@ -1,5 +1,7 @@
 const mongoose = require('mongoose')
 const validator=require('validator')
+const jwt = require('jsonwebtoken')
+const bcrypt = require('bcryptjs')
 //const dateOnly =require('mongoose-dateonly')(mongoose)
 const empSchema = new mongoose.Schema({
     empID:{
@@ -24,12 +26,12 @@ const empSchema = new mongoose.Schema({
         trim: true
     },
     empDOB:{
-        type: Date,
+        type: String,
         required: true,
         trim: true        
     },
     empDOJ:{
-        type: Date,
+        type: String,
         required: true,
         trim: true
     },
@@ -80,19 +82,45 @@ const empSchema = new mongoose.Schema({
         }
     },
     token:{
-            type: String,
+        type: String,
+        default: ""    
     }
 })
 
 empSchema.methods.generateAuthToken = async function () {
-    const emp = this
-    const token = jwt.sign({ _id: emp._id.toString() }, 'WeAreMiracalWorkers!')
-    emp.token = token
-    await emp.save()
-    return token
+    this.token = jwt.sign({ _id: this._id.toString() }, 'WeAreMiracalWorkers!')
+    console.log("Auth token generated...........")
+    await this.save()
+    console.log("welcome",this.token)
+    return this.token
 }
 
+empSchema.statics.findByCred = async function (email, password)  {
+    console.log("Inside find by")
+    const emp = await Employee.findOne({ email })
+    console.log(emp)
+    if(!emp) {
+        throw new Error("Unable to login");
+    }
+    console.log("passwords: ", password, emp.password)
+    const isMatch = await bcrypt.compare(password, emp.password)
+    if(!isMatch) {
+        throw new Error("Password is wrong");
+    }
+    return emp;
+}
+
+// Hash the plain text password is saving
+empSchema.pre('save', async function (next) {
+    if(this.isModified('password')) {
+        this.password = await bcrypt.hash(this.password, 8)
+    }
+    console.log("end of middle ware")
+    next()
+})
+
 const Employee = mongoose.model('Employee', empSchema)
+
 module.exports = Employee
 
 
