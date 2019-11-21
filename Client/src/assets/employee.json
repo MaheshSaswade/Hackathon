@@ -1,0 +1,44 @@
+[
+    {
+        "empID":1,
+        "empName":"Ankita",
+        "empDesignation":"Software Trainee",
+        "empDepartment":"Development",
+        "empDOB":"06/01/1998",
+        "empDOJ":"03/10/2019",
+        "email":"ankita.yadav@enzigma.in",
+        "mobileNo":"9730457039",
+        "gender":"Female",
+        "managerID":101,
+        "password":"Ankita@12345"
+    
+    },
+    {
+        "empID":2,
+        "empName":"Antara",
+        "empDesignation":"Software Trainee",
+        "empDepartment":"Development",
+        "empDOB":"06/01/1998",
+        "empDOJ":"03/10/2019",
+        "email":"antara.yadav@enzigma.in",
+        "mobileNo":"9730457039",
+        "gender":"Female",
+        "managerID":101,
+        "password":"Antara@12345"
+    
+    },
+    {
+        "empID":3,
+        "empName":"Abhilasha",
+        "empDesignation":"Software Trainee",
+        "empDepartment":"Development",
+        "empDOB":"06/01/1998",
+        "empDOJ":"03/10/2019",
+        "email":"abhilasha.yadav@enzigma.in",
+        "mobileNo":"9730457039",
+        "gender":"Female",
+        "managerID":101,
+        "password":"abhilasha@12345"
+    
+    }
+]

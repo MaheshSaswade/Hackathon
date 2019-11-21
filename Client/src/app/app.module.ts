@@ -21,6 +21,8 @@ import { ViewStatsComponent } from './components/hr-dashboard/view-stats/view-st
 import { AllReviewsListComponent } from './components/hr-dashboard/all-reviews-list/all-reviews-list.component';
 import { ManageEmpComponent } from './components/hr-dashboard/manage-emp/manage-emp.component';
 import { ManageReviewComponent } from './components/hr-dashboard/manage-review/manage-review.component';
+import { ListEmployeeComponent } from './components/list-employee/list-employee.component';
+import { EmployeeService } from './services/employee.service';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,8 @@ import { ManageReviewComponent } from './components/hr-dashboard/manage-review/m
     ViewStatsComponent,
     AllReviewsListComponent,
     ManageEmpComponent,
-    ManageReviewComponent
+    ManageReviewComponent,
+    ListEmployeeComponent
   ],
   imports: [
     BsDatepickerModule.forRoot(),
@@ -74,7 +77,7 @@ import { ManageReviewComponent } from './components/hr-dashboard/manage-review/m
     CollapseModule.forRoot(),
     BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [EmployeeService],
   bootstrap: [AppComponent, EmpDashboardComponent, LoginComponent]
 })
 
