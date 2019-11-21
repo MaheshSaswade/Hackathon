@@ -7,11 +7,19 @@ import { EmployeeInterface } from '../EmployeeInterface';
   providedIn: 'root'
 })
 export class EmployeeService {
-
   private url: string = "assets/employee.json"
+
+  // private url: string = 'http://localhost:3000/employee'
+  // employee: any;
   constructor(private http: HttpClient) { }
 
   getemployees():Observable<EmployeeInterface[]>{
     return this.http.get<EmployeeInterface[]>(this.url);
-  }
+}
+
+  // getemployees()  {
+  //   this.employee=this.http.get(this.url +'/employee')
+  // }
+
+  
 }
