@@ -1,0 +1,56 @@
+
+  <title>Review System</title>
+
+  <body>
+  
+    <div class="d-flex" id="wrapper">
+      <!-- Sidebar -->
+      <div class="bg-light border-right" id="sidebar-wrapper" >
+        <div class="sidebar-heading"> <h4> <strong> Review System </strong> </h4></div>
+        <div class="list-group list-group-flush" id="collapseBasic" [collapse]="!isCollapsed" [isAnimated]="true">
+          <a [routerLink]="['/viewstats']" routerLinkActive="router-link-active"  class="list-group-item list-group-item-action bg-light">Review Statistics</a>
+          <a [routerLink]="['/manageemp']" routerLinkActive="router-link-active" class="list-group-item list-group-item-action bg-light">Manage Employee Details</a>
+          <a [routerLink]="['/managereview']" routerLinkActive="router-link-active"  class="list-group-item list-group-item-action bg-light">Manage Reviews</a>
+          <a [routerLink]="['/allreviewslist']" routerLinkActive="router-link-active" class="list-group-item list-group-item-action bg-light">Reviews Lists</a>
+          <a href="#" class="list-group-item list-group-item-action bg-light">Reviews schema</a>
+        </div>
+      </div>
+      <!-- /#sidebar-wrapper -->
+  
+      <!-- Page Content -->
+      <div id="page-content-wrapper">
+  
+        <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+          <button class="btn btn-info" id="menu-toggle" (click)="isCollapsed = !isCollapsed"
+          [attr.aria-expanded]="!isCollapsed" aria-controls="collapseBasic">Menu</button>
+  
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+  
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+              <li class="nav-item active">
+                <a class="nav-link" href="#">HR Name <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item">
+                <button class="btn btn-info" href="#">Logout</button>
+              </li>
+              
+            </ul>
+          </div>
+        </nav>
+  
+        <div class="container-fluid">
+          <h1 class="mt-4" style="margin-left:1em;">Dashboard</h1>
+        </div>
+
+        <router-outlet></router-outlet>
+      </div>
+      <!-- /#page-content-wrapper -->
+  
+    </div>
+  
+  </body>
+  
+  

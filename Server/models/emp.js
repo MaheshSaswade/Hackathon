@@ -1,11 +1,12 @@
 const mongoose = require('mongoose')
 const validator=require('validator')
-
+//const dateOnly =require('mongoose-dateonly')(mongoose)
 const empSchema = new mongoose.Schema({
     empID:{
         type: Number,
         required: true,
-        trim: true    
+        trim: true,
+        unique: true    
     },
     empName:{
         type: String,
@@ -47,11 +48,13 @@ const empSchema = new mongoose.Schema({
     mobileNo:{
         type: Number,
         required: true,
-        minlength: 10,
         trim: true,
         validate(value){
-            if (value > 10) {
-                throw new Error('MoNo must be a 10 digit number')
+            if (value.toString().length > 10) {
+                throw new Error('Mobile number is 10 digit')
+            }
+            else if(value.toString().length <10) {
+                throw new Error('Mobile number is 10 digit')
             }
         }    
     },
@@ -78,9 +81,16 @@ const empSchema = new mongoose.Schema({
     },
     token:{
             type: String,
-            required: true
     }
 })
+
+empSchema.methods.generateAuthToken = async function () {
+    const emp = this
+    const token = jwt.sign({ _id: emp._id.toString() }, 'WeAreMiracalWorkers!')
+    emp.token = token
+    await emp.save()
+    return token
+}
 
 const Employee = mongoose.model('Employee', empSchema)
 module.exports = Employee

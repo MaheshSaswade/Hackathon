@@ -1,0 +1,10 @@
+.card{
+    width: 30em;
+    text-align: left;
+    margin-left: 2em;
+    margin-top: 1em;
+}
+
+.card-header{
+    text-align: center;
+}
