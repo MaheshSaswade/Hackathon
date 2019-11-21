@@ -5,6 +5,7 @@ import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { from } from 'rxjs';
+import { AngularMultiSelectModule } from 'angular2-multiselect-dropdown';
 
 import { AppComponent } from './app.component';
 import { CreateEmpComponent } from './components/create-emp/create-emp.component';
@@ -21,6 +22,7 @@ import { ViewStatsComponent } from './components/hr-dashboard/view-stats/view-st
 import { AllReviewsListComponent } from './components/hr-dashboard/all-reviews-list/all-reviews-list.component';
 import { ManageEmpComponent } from './components/hr-dashboard/manage-emp/manage-emp.component';
 import { ManageReviewComponent } from './components/hr-dashboard/manage-review/manage-review.component';
+import { MultiSelectModule } from '@syncfusion/ej2-angular-dropdowns';
 
 @NgModule({
   declarations: [
@@ -35,13 +37,15 @@ import { ManageReviewComponent } from './components/hr-dashboard/manage-review/m
     ViewStatsComponent,
     AllReviewsListComponent,
     ManageEmpComponent,
-    ManageReviewComponent
+    ManageReviewComponent    
   ],
   imports: [
     BsDatepickerModule.forRoot(),
     BrowserModule,
     FormsModule,
     HttpClientModule,
+    AngularMultiSelectModule,
+    MultiSelectModule,
     RouterModule.forRoot([
     {
         path: 'login', component: LoginComponent
@@ -75,7 +79,7 @@ import { ManageReviewComponent } from './components/hr-dashboard/manage-review/m
     BrowserAnimationsModule
   ],
   providers: [],
-  bootstrap: [AppComponent, EmpDashboardComponent, LoginComponent]
+  bootstrap: [AppComponent]
 })
 
 export class AppModule { }
