@@ -50,6 +50,9 @@ import { UpdateEmpComponent } from './components/emp-dashboard/update-emp/update
         path: 'login', component: LoginComponent
     },
     {
+        path: '', redirectTo: '/login', pathMatch: 'full'
+    },
+    {
       path : 'emp-dash', component : EmpDashboardComponent
     },
     {
