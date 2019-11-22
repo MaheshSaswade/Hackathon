@@ -66,6 +66,26 @@ router.delete('/review1/:review_id', async (req, res) => {
 //         }
 //     })
     
-router.update('/reviewUpdate/:review_id')
+//localhost:3000/reviewUpdate/101
+router.patch('/reviewUpdate/:review_id', async (req, res) => 
+{
+    const updates = Object.keys(req.body)
+    const allowedUpdates = ['review_type', ' skills', 'recommendation']
+    const isValidOperation = updates.every((update) => allowedUpdates.includes(update))
+    if (!isValidOperation) {
+            return res.status(400).send({ error: 'Invalid updates!' })
+    }
+    try 
+    {
+            const reviewUpdate = await review.findOneAndUpdate(req.params.review_id, req.body, { new: true, runValidators: true })
+            if (!reviewUpdate) {
+                    return res.status(404).send()
+            }
+            res.send(reviewUpdate)
+    } catch (e) {
+            res.status(400).send(e)
+    }
+})
+
 
 module.exports = router;
