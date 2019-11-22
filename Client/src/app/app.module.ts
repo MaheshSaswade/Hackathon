@@ -52,6 +52,9 @@ import { DeleteEmpComponent } from './components/hr-dashboard/manage-emp/delete-
         path: 'login', component: LoginComponent
     },
     {
+        path: '', redirectTo: '/login', pathMatch: 'full'
+    },
+    {
       path : 'emp-dash', component : EmpDashboardComponent
     },
     {
