@@ -21,9 +21,8 @@ import { ViewStatsComponent } from './components/hr-dashboard/view-stats/view-st
 import { AllReviewsListComponent } from './components/hr-dashboard/all-reviews-list/all-reviews-list.component';
 import { ManageEmpComponent } from './components/hr-dashboard/manage-emp/manage-emp.component';
 import { ManageReviewComponent } from './components/hr-dashboard/manage-review/manage-review.component';
-import { ListEmployeeComponent } from './components/list-employee/list-employee.component';
 import { EmployeeService } from './services/employee.service';
-
+import { AppRoutingModule, routingComponent} from './RoutingModule/app.routing.module';
 @NgModule({
   declarations: [
     CreateEmpComponent,
@@ -38,11 +37,12 @@ import { EmployeeService } from './services/employee.service';
     AllReviewsListComponent,
     ManageEmpComponent,
     ManageReviewComponent,
-    ListEmployeeComponent
+    routingComponent    
   ],
   imports: [
     BsDatepickerModule.forRoot(),
     BrowserModule,
+    AppRoutingModule,
     FormsModule,
     HttpClientModule,
     RouterModule.forRoot([

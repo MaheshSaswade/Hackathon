@@ -1,0 +1,15 @@
+.btn{
+    margin: 1em;
+    margin-left: 3.75em;
+    width: 5em;
+}
+
+.card{
+    width: 80%;
+    margin-left: 3.75em;
+    margin-top: 0.5em;
+}
+
+.card-header{
+    text-align: center;
+}
