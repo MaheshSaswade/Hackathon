@@ -13,9 +13,9 @@ router.get('/rList',(req, res) => {
 });
 
 //localhost:3000/rlist/101
-router.get('/rlist/:id', auth, async (req, res) => {
+router.get('/rlist/:review_id', auth, async (req, res) => {
     try{
-        const empReview = await review.findOne(req.params.id)
+        const empReview = await review.findOne(req.params.review_id)
         if(empReview){ res.send(empReview) }
         else { console.log('Error in retriving review')}
     }catch(error){
@@ -37,7 +37,7 @@ router.post('/review',async (req, res) => {
     }
 });
 
-localhost:3000/review1/101
+//localhost:3000/review1/101
 router.delete('/review1/:review_id', async (req, res) => {
     try {
        const empReview = await review.findOneAndDelete(req.params.review_id)
@@ -66,5 +66,6 @@ router.delete('/review1/:review_id', async (req, res) => {
 //         }
 //     })
     
+router.update('/reviewUpdate/:review_id')
 
 module.exports = router;
