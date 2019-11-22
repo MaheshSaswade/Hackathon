@@ -47,6 +47,9 @@ import { ManageReviewComponent } from './components/hr-dashboard/manage-review/m
         path: 'login', component: LoginComponent
     },
     {
+        path: '', redirectTo: '/login', pathMatch: 'full'
+    },
+    {
       path : 'emp-dash', component : EmpDashboardComponent
     },
     {

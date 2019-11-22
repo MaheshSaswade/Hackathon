@@ -59,7 +59,7 @@ router.post('/employee/login', async(req, res) => {
     try {    
         const emp = await Employee.findByCred(req.body.email, req.body.password)
         const token = await emp.generateAuthToken();
-        res.send({ message: 'Logged in!', emp, token })
+        res.status(200).send({ message: 'Logged in!', emp, token })
     } catch (error) {
         res.status(400).send({message : "Your email or password is wrong",error})
     }
