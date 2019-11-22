@@ -23,6 +23,7 @@ import { ManageEmpComponent } from './components/hr-dashboard/manage-emp/manage-
 import { ManageReviewComponent } from './components/hr-dashboard/manage-review/manage-review.component';
 import { EmployeeService } from './services/employee.service';
 import { UpdateEmpComponent } from './components/hr-dashboard/manage-emp/update-emp/update-emp.component';
+import { DeleteEmpComponent } from './components/hr-dashboard/manage-emp/delete-emp/delete-emp.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { UpdateEmpComponent } from './components/hr-dashboard/manage-emp/update-
     AllReviewsListComponent,
     ManageEmpComponent,
     ManageReviewComponent,
-    UpdateEmpComponent
+    UpdateEmpComponent,
+    DeleteEmpComponent
   ],
   imports: [
     BsDatepickerModule.forRoot(),
