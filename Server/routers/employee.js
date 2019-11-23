@@ -122,4 +122,8 @@ router.post('/employee/logout', async(req, res) => {
     }
 })
 
+router.get('/employee/list',(req,res) => {
+    var currentEmployee =req.body.emp
+    var  
+})
 module.exports = router
