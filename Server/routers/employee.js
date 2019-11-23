@@ -53,13 +53,13 @@ router.get('/employee/me',auth ,async (req, res) => {
 
 //Login with email & pwd
 
-router.post('/employee/login',auth , async(req, res) => {
+router.post('/employee/login', async(req, res) => {
     console.log("Welcome mahesh inside node js")
     console.log(req.body.email)
     try {    
         const emp = await Employee.findByCred(req.body.email, req.body.password)
         const token = await emp.generateAuthToken();
-        res.status(200).send({ message: 'Logged in!', emp, token })
+        res.send({ message: 'Logged in!', emp, token })
     } catch (error) {
         res.status(400).send({message : "Your email or password is wrong",error})
     }

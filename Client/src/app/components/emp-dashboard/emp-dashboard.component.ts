@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { RouterModule, Router } from '@angular/router';
-
 
 @Component({
   selector: 'app-emp-dashboard',
@@ -9,7 +7,7 @@ import { RouterModule, Router } from '@angular/router';
 })
 export class EmpDashboardComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor() { }
 
   ngOnInit() {
   }

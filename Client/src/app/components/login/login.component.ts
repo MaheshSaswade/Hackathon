@@ -9,8 +9,8 @@ import { from } from 'rxjs';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-
-
+  
+  
   constructor(private Auth: AuthService, private router: Router) { }
 
   ngOnInit() {
@@ -19,8 +19,11 @@ export class LoginComponent implements OnInit {
   login(event) { 
     event.preventDefault()
     const target = event.target
+<<<<<<< HEAD
+<<<<<<< HEAD
     const email = target.querySelector('#email').value
     const password = target.querySelector('#password').value
+<<<<<<< HEAD
     this.Auth.getUserDetails(email, password).subscribe((response) => {
       let data = JSON.stringify(response)
       let data1 = JSON.parse(data) 
@@ -31,6 +34,28 @@ export class LoginComponent implements OnInit {
         alert("Welcome")
         this.router.navigate(['/emp-dash'])
       }
+=======
+=======
+    const email = target.getElementByID('email')
+    const password = target.getElementByID('password')
+    console.log(email,password)
+>>>>>>> parent of f125e0d... Merge remote-tracking branch 'origin/mahesh' into AnkitaY
+=======
+    const email = target.getElementByID('email')
+    const password = target.getElementByID('password')
+    console.log(email,password)
+>>>>>>> parent of f125e0d... Merge remote-tracking branch 'origin/mahesh' into AnkitaY
+    this.Auth.getUserDetails(email, password).subscribe( response => { 
+    let data = JSON.stringify(response)
+    alert(data)
+    let data1 = JSON.parse(data)
+<<<<<<< HEAD
+<<<<<<< HEAD
+    if(data1.emp.empDesignation === "Hr") {
+      alert(data1.emp.empDesignation)
+    } 
+    
+>>>>>>> parent of e18024d... display sequence
     })
     console.log(email, password)
 
@@ -51,4 +76,22 @@ export class LoginComponent implements OnInit {
     // })
     // console.log(email, password)
     }
+=======
+    if(data1.emp.empDesignation === "Hr") { 
+      alert(data1.emp.empDesignation)
+    } 
+    
+    })
+    console.log(email,password)
+  }
+>>>>>>> parent of f125e0d... Merge remote-tracking branch 'origin/mahesh' into AnkitaY
+=======
+    if(data1.emp.empDesignation === "Hr") { 
+      alert(data1.emp.empDesignation)
+    } 
+    
+    })
+    console.log(email,password)
+  }
+>>>>>>> parent of f125e0d... Merge remote-tracking branch 'origin/mahesh' into AnkitaY
 }
