@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { EmployeeService } from '../../../services/employee.service'
 import { ReviewService } from '../../../services/review.service'
 
 @Component({
@@ -14,15 +13,16 @@ export class InsertReviewComponent implements OnInit {
 	selectedItems= [];
 	selectSkills= [];
 
-	constructor(public Emp: EmployeeService, public Rev: ReviewService) {
+	constructor(public Rev: ReviewService) {
 	}
 
 	getemplist() {
-		this.Emp.getEmployees().subscribe((response) => {
+		this.Rev.getEmployees().subscribe((response) => {
 			let data = JSON.stringify(response); let data1 = JSON.parse(data)
 
 			for (let i = 0; i < data1.length; i++) {
-				this.empList.push(data1[i].empName)
+				const data = ('ID:' + data1[i].empID + ' ' + data1[i].empName)
+				this.empList.push(data)
 			}
 
 			return this.empList
@@ -31,7 +31,7 @@ export class InsertReviewComponent implements OnInit {
 	}
 	
 	getskillList(){
-		this.Emp.getskills().subscribe((response) => {
+		this.Rev.getskills().subscribe((response) => {
 			let data = JSON.stringify(response); let data1 = JSON.parse(data)
 			console.log(data1)
 			for (let i = 0; i < data1.length; i++) {
@@ -56,8 +56,11 @@ export class InsertReviewComponent implements OnInit {
 			const review_type = target.querySelector('#review_type').value
 			const date = target.querySelector('#deadline').value
 			const deadline = date.toString()
-			
+
+			console.log(this.selectSkills)
+
 			this.Rev.create_review(review_type, this.selectSkills, this.selectedItems, date1, deadline)
+			
 		  }
 	
 

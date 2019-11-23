@@ -26,7 +26,7 @@ router.patch('/emp/:id', async (req, res) =>
 })
 
 
-router.get('/employee',auth,async (req,res) => {
+router.get('/employee', async (req,res) => {
     try {
         const emps = await Employee.find({});
         console.log("emps",emps);

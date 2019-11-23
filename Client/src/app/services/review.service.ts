@@ -8,6 +8,17 @@ export class ReviewService {
 
   constructor(private http: HttpClient) { }
 
+  getEmployees() {
+    // get employee list object from server
+    const url = 'http://localhost:3000/employee'
+    return this.http.get(url)
+  }
+
+  getskills(){
+  const url = 'http://localhost:3000/skills'
+    return this.http.get(url)
+  }
+
   create_review(review_type, selectSkills, selectedItems, date1, deadline) {
     
     // post username and password to node server
