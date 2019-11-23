@@ -15,11 +15,4 @@ export class DeleteEmpComponent implements OnInit {
   ngOnInit() {
   }
 
-  onDelete(delform: NgForm) {
-    console.log('function call');
-    this.empService.deleteEmployee(delform.value).subscribe((res => {
-      M.toast({ html: 'Deleted Successfully ', classes: 'rounded' });
-    }));
-    console.log('Deleted');
-  }
 }
