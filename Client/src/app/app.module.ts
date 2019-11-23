@@ -12,10 +12,10 @@ import { AngularMultiSelectModule } from 'angular2-multiselect-dropdown';
 import { MatSelectModule } from '@angular/material/select';
 import { MultiSelectModule } from '@syncfusion/ej2-angular-dropdowns';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 
 import { AppComponent } from './app.component';
-import { CreateEmpComponent } from './components/create-emp/create-emp.component';
+import { CreateEmpComponent } from './components/emp-dashboard/create-emp/create-emp.component';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { InsertReviewComponent } from './components/review/insert-review/insert-review.component';
 import { EmpDashboardComponent } from './components/emp-dashboard/emp-dashboard.component';
 import { LoginComponent } from './components/login/login.component';
@@ -26,6 +26,9 @@ import { ViewStatsComponent } from './components/hr-dashboard/view-stats/view-st
 import { AllReviewsListComponent } from './components/hr-dashboard/all-reviews-list/all-reviews-list.component';
 import { ManageEmpComponent } from './components/hr-dashboard/manage-emp/manage-emp.component';
 import { ManageReviewComponent } from './components/hr-dashboard/manage-review/manage-review.component';
+import { EmployeeService } from './services/employee.service';
+import { UpdateEmpComponent } from './components/emp-dashboard/update-emp/update-emp.component';
+import { ReviewService } from './services/review.service';
 
 
 @NgModule({
@@ -42,6 +45,7 @@ import { ManageReviewComponent } from './components/hr-dashboard/manage-review/m
     AllReviewsListComponent,
     ManageEmpComponent,
     ManageReviewComponent,
+    UpdateEmpComponent
   ],
   imports: [
     BsDatepickerModule.forRoot(),
@@ -56,6 +60,9 @@ import { ManageReviewComponent } from './components/hr-dashboard/manage-review/m
     RouterModule.forRoot([
     {
         path: 'login', component: LoginComponent
+    },
+    {
+        path: '', redirectTo: '/login', pathMatch: 'full'
     },
     {
       path : 'emp-dash', component : EmpDashboardComponent
@@ -85,8 +92,8 @@ import { ManageReviewComponent } from './components/hr-dashboard/manage-review/m
     CollapseModule.forRoot(),
     BrowserAnimationsModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [EmployeeService, ReviewService],
+  bootstrap: [AppComponent, EmpDashboardComponent, LoginComponent]
 })
 
 export class AppModule { }
