@@ -18,10 +18,10 @@ export class EmployeeService {
   employees: CreateEmpComponent[];
   
 
- readonly baseUrl = 'http//localhost:3000/employee';
+ readonly baseUrl = 'http://localhost:3000/employee';
 
   postEmployee(emp: CreateEmpComponent) {
-    return this.http.post(this.baseUrl + 'employee', emp);
+    return this.http.post(this.baseUrl, emp);
   }
 
   putEmployee(upEmp: UpdateEmpComponent) {

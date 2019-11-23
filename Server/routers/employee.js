@@ -36,7 +36,7 @@ router.get('/employee', async (req,res) => {
     }
 })
 
-router.post('/employee',async (req,res) => {
+router.post('/employee', async (req,res) => {
     const employee = new Employee(req.body)
     try { 
         await employee.save()
