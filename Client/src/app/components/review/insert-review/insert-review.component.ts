@@ -1,42 +1,69 @@
 import { Component, OnInit } from '@angular/core';
-import { Query, DataManager, ODataV4Adaptor } from '@syncfusion/ej2-data'
+import { EmployeeService } from '../../../services/employee.service'
+import { ReviewService } from '../../../services/review.service'
 
 @Component({
-  selector: 'app-insert-review',
-  templateUrl: './insert-review.component.html',
-  styleUrls: ['./insert-review.component.css']
+	selector: 'app-insert-review',
+	templateUrl: './insert-review.component.html',
+	styleUrls: ['./insert-review.component.css']
 })
+
 export class InsertReviewComponent implements OnInit {
-  
+	empList = [];
+	skillList = [];
+	selectedItems= [];
+	selectSkills= [];
 
-  constructor() { 
-  
-  }
+	constructor(public Emp: EmployeeService, public Rev: ReviewService) {
+	}
 
-  ngOnInit(){
+	getemplist() {
+		this.Emp.getEmployees().subscribe((response) => {
+			let data = JSON.stringify(response); let data1 = JSON.parse(data)
 
-  }
+			for (let i = 0; i < data1.length; i++) {
+				this.empList.push(data1[i].empName)
+			}
 
-  public data: DataManager = new DataManager({
-    url: 'localhost:3000/employee',
-    adaptor: new ODataV4Adaptor,
-    crossDomain: true
-  });
+			return this.empList
+		})
 
-// maps the appropriate column to fields property
-public fields: Object = { text: 'empID', value: 'EmployeeID' };
-//bind the Query instance to query property
-public query: Query = new Query().from('Employees').select(['FirstName', 'City','EmployeeID']).take(6);
-//set the placeholder to MultiSelect input
-public text: string = "Select an employee";
-//sort the result items
-public sorting: string = 'Ascending';
-public box : string = 'box';
+	}
+	
+	getskillList(){
+		this.Emp.getskills().subscribe((response) => {
+			let data = JSON.stringify(response); let data1 = JSON.parse(data)
+			console.log(data1)
+			for (let i = 0; i < data1.length; i++) {
+				this.skillList.push(data1[i].skill)
+			}
+			console.log(this.skillList)
+			return this.skillList
+		})
+	}
 
+	
+		create_review(event){
+			event.preventDefault()
 
-  onSubmit(reviewData) {
-    console.log("Your data is successfully added..")
-  }
-  
+			let today = new Date();
+			let dd = String(today.getDate()).padStart(2, '0'); 
+			let mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0! 
+			let yyyy = today.getFullYear(); 
+			const date1 = mm + '/' + dd + '/' + yyyy;
+
+			const target = event.target
+			const review_type = target.querySelector('#review_type').value
+			const date = target.querySelector('#deadline').value
+			const deadline = date.toString()
+			
+			this.Rev.create_review(review_type, this.selectSkills, this.selectedItems, date1, deadline)
+		  }
+	
+
+	ngOnInit() {
+		this.getemplist()
+		this.getskillList()
+	}
 
 }

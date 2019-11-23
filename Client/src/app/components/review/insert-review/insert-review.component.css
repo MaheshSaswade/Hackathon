@@ -1,8 +1,13 @@
-.card{
-    width: 90%;
-    margin: 2em;
+.card {
+  width: 50%;
+  margin-top:2.5em;
+  margin-left: 3em;
 }
 
-.card-header{
-    text-align: center;
+.card-header {
+  text-align: center;
+}
+
+.card-body{
+    width: 60%;
 }

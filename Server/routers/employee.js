@@ -1,6 +1,6 @@
 const express = require('express')
 const Employee = require('../models/emp')
-// const cors = require('cors')
+const cors = require('cors')
 const router = new express.Router()
 
 
@@ -39,7 +39,7 @@ router.delete('/emp/:id', async (req, res) => {
 })
 
 
-router.post('/employee',async (req,res) => {
+router.post('/employee', async (req,res) => {
     const employee = new Employee(req.body)
     try { 
         await employee.save()
@@ -51,7 +51,7 @@ router.post('/employee',async (req,res) => {
     }
 })
 
-router.get('/employee', async (req,res) => {
+router.get('/employee', cors(), async (req,res) => {
     try {
         const emps = await Employee.find({});
         console.log("emps",emps);

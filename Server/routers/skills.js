@@ -32,7 +32,6 @@ router.get('/skills', async (req,res) => {
 
 router.delete('/skills', async (req, res) => {
     try {
-        console.log("Yes")
         const skills = await Skills.findOneAndDelete(req.body.skill)
         
         if (!skills) {
