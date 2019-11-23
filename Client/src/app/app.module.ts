@@ -23,6 +23,7 @@ import { ManageEmpComponent } from './components/hr-dashboard/manage-emp/manage-
 import { ManageReviewComponent } from './components/hr-dashboard/manage-review/manage-review.component';
 import { EmployeeService } from './services/employee.service';
 import { AppRoutingModule, routingComponent} from './RoutingModule/app.routing.module';
+import { EmployeeProfileService } from './services/employee-profile.service';
 @NgModule({
   declarations: [
     CreateEmpComponent,
@@ -77,7 +78,7 @@ import { AppRoutingModule, routingComponent} from './RoutingModule/app.routing.m
     CollapseModule.forRoot(),
     BrowserAnimationsModule
   ],
-  providers: [EmployeeService],
+  providers: [EmployeeService, EmployeeProfileService],
   bootstrap: [AppComponent, EmpDashboardComponent, LoginComponent]
 })
 
