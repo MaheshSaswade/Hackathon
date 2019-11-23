@@ -21,6 +21,7 @@ export class LoginComponent implements OnInit {
     const target = event.target
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     const email = target.querySelector('#email').value
     const password = target.querySelector('#password').value
 <<<<<<< HEAD
@@ -45,10 +46,16 @@ export class LoginComponent implements OnInit {
     const password = target.getElementByID('password')
     console.log(email,password)
 >>>>>>> parent of f125e0d... Merge remote-tracking branch 'origin/mahesh' into AnkitaY
+=======
+    const email = target.getElementByID('email')
+    const password = target.getElementByID('password')
+    console.log(email,password)
+>>>>>>> parent of f125e0d... Merge remote-tracking branch 'origin/mahesh' into AnkitaY
     this.Auth.getUserDetails(email, password).subscribe( response => { 
     let data = JSON.stringify(response)
     alert(data)
     let data1 = JSON.parse(data)
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
     if(data1.emp.empDesignation === "Hr") {
@@ -76,6 +83,15 @@ export class LoginComponent implements OnInit {
     // })
     // console.log(email, password)
     }
+=======
+    if(data1.emp.empDesignation === "Hr") { 
+      alert(data1.emp.empDesignation)
+    } 
+    
+    })
+    console.log(email,password)
+  }
+>>>>>>> parent of f125e0d... Merge remote-tracking branch 'origin/mahesh' into AnkitaY
 =======
     if(data1.emp.empDesignation === "Hr") { 
       alert(data1.emp.empDesignation)

@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { Observable, from } from 'rxjs';
 // import 'rxjs/add/operator/map';
 // import 'rxjs/add/operator/toPromise';
@@ -17,6 +18,8 @@ import { DeleteEmpComponent } from '../components/hr-dashboard/manage-emp/delete
 >>>>>>> parent of f125e0d... Merge remote-tracking branch 'origin/mahesh' into AnkitaY
 =======
 >>>>>>> parent of f125e0d... Merge remote-tracking branch 'origin/mahesh' into AnkitaY
+=======
+>>>>>>> parent of f125e0d... Merge remote-tracking branch 'origin/mahesh' into AnkitaY
 
 @Injectable({
   providedIn: 'root'
@@ -27,6 +30,7 @@ export class EmployeeService {
   
   
   private url = "http://localhost:3000/employee";
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 //   selectedEmployee: CreateEmpComponent;
@@ -67,6 +71,16 @@ export class EmployeeService {
   constructor(private http: HttpClient) { }
 
 
+=======
+  
+  constructor(private http: HttpClient) { }
+
+
+
+  public  getemployees()  {
+    return this.http.get(this.url)
+  }
+>>>>>>> parent of f125e0d... Merge remote-tracking branch 'origin/mahesh' into AnkitaY
 
   public  getemployees()  {
     return this.http.get(this.url)
