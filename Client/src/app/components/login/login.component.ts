@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../auth.service';
+import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router'
 import { from } from 'rxjs';
 
@@ -67,6 +67,7 @@ export class LoginComponent implements OnInit {
 
 
 
+    
     // this.Auth.getUserDetails(email, password).subscribe(Error, (response) => {
     //   alert("Hello")
     //   let data = JSON.stringify(response)

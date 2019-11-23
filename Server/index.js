@@ -1,8 +1,10 @@
 const express = require('express')
-const cors = require("cors");
+//const cors = require("cors");
 const bodyParser = require('body-parser')
 require('./db/mongoose')
 const empRouter = require('./routers/employee')
+const skillRouter = require('./routers/skills')
+const reviewRouter = require('./routers/review')
 
 const app = express()
 const port = process.env.PORT || 3000
@@ -17,11 +19,15 @@ app.use(function(req, res, next) {
     next();
 });
 
+//app.use(cors({ origin: 'http//localhost:4200' }));
 app.use(empRouter)
+app.use(skillRouter)
+app.use(reviewRouter)
 
 app.listen(port, () => {
     console.log('Server running on ' + port)
 })
+
 
 
 

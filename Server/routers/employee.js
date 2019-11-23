@@ -1,7 +1,7 @@
 const express = require('express')
 const Employee = require('../models/emp')
+const cors = require('cors')
 const auth = require('../middleware/auth')
-const mongoose = require('mongoose')
 const router = new express.Router()
 
 
@@ -26,7 +26,7 @@ router.patch('/emp/:id', async (req, res) =>
 })
 
 
-router.get('/employee',auth,async (req,res) => {
+router.get('/employee', async (req,res) => {
     try {
         const emps = await Employee.find({});
         console.log("emps",emps);
@@ -45,7 +45,6 @@ router.post('/employee',async (req,res) => {
         res.status(400).send(error)
     }
 })
-
 
 router.get('/employee/me',auth ,async (req, res) => {
     res.send(req.emp)

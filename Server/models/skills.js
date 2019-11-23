@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 const validator = require('validator')
 
-const Skills = new mongoose.Schema({
+const Skills = mongoose.model('Skills', {
     id: {
         type: Number,
         required: true
@@ -24,7 +24,5 @@ const Skills = new mongoose.Schema({
         required: true
     }
 })
-
-const Skills = mongoose.model('Skills', ReviewSchema)
 
 module.exports = Skills

@@ -27,3 +27,21 @@ router.get('/skills', async (req,res) => {
         res.status(500).send(error)
     }
 })
+
+// Delete skill
+
+router.delete('/skills', async (req, res) => {
+    try {
+        const skills = await Skills.findOneAndDelete(req.body.skill)
+        
+        if (!skills) {
+            return res.status(404).send('Skill not found!')
+        }
+
+        res.send(skills)
+    } catch (e) {
+        res.status(500).send()
+    }
+})
+
+module.exports = router

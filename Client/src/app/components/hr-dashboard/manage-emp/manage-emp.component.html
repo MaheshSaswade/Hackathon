@@ -1,8 +1,10 @@
-<button class="btn btn-success">Add  </button>
+<router-outlet></router-outlet>
 
-<button class="btn btn-success">Delete</button>
+<button class="btn btn-success" (click)="showAddForm()"  >Add  </button>
 
-<button class="btn btn-success">Update  </button>
+<button class="btn btn-success" (click)="showDeleteForm()">Delete</button>
+
+<button class="btn btn-success" (click)="showUpdateForm()">Update  </button>
 
 <button class="btn btn-success">View  </button>
 

@@ -4,7 +4,6 @@ const validator=require('validator')
 const ReviewSchema = new mongoose.Schema({
     review_id: {
         type: Number,
-        required: true
     },
     review_type: {
         type: String,
@@ -17,11 +16,9 @@ const ReviewSchema = new mongoose.Schema({
     status: {
         type: Boolean,
         default: false,
-        required: true
     },
     recommendation : {
         type: String,
-        required: true
     },
     create_date : {
         type: String,
@@ -39,3 +36,5 @@ const ReviewSchema = new mongoose.Schema({
 const Review = mongoose.model('Review', ReviewSchema)
 
 module.exports = Review
+
+
