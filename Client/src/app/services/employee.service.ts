@@ -10,7 +10,6 @@ export class EmployeeService {
   // private url: string = "assets/employee.json"
   // private url: string = 'http://localhost:5000/users'
   
-  
   private url = "http://localhost:3000/employee";
 
   constructor(private http: HttpClient) { }

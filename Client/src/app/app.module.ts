@@ -16,7 +16,6 @@ import { ViewStatsComponent } from './components/hr-dashboard/view-stats/view-st
 import { AllReviewsListComponent } from './components/hr-dashboard/all-reviews-list/all-reviews-list.component';
 import { ManageEmpComponent } from './components/hr-dashboard/manage-emp/manage-emp.component';
 import { ManageReviewComponent } from './components/hr-dashboard/manage-review/manage-review.component';
-import { ListEmployeeComponent } from './components/list-employee/list-employee.component';
 import { RouterModule } from '@angular/router';
 import { EmpDashboardComponent } from './components/emp-dashboard/emp-dashboard.component';
 import { LoginComponent } from './components/login/login.component';
@@ -25,7 +24,6 @@ import { LoginComponent } from './components/login/login.component';
   declarations: [
     AppComponent,
     InsertReviewComponent,
-
     routingComponent ,   
     EmpDashboardComponent,
     LoginComponent,
@@ -36,9 +34,6 @@ import { LoginComponent } from './components/login/login.component';
     AllReviewsListComponent,
     ManageEmpComponent,
     ManageReviewComponent,
-
-    ListEmployeeComponent,
-
     routingComponent    
   ],
   imports: [
@@ -46,6 +41,7 @@ import { LoginComponent } from './components/login/login.component';
     BrowserModule,
     FormsModule,
     HttpClientModule,
+    AppRoutingModule,
     RouterModule.forRoot([
     {
         path: 'login', component: LoginComponent
