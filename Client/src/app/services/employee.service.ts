@@ -40,12 +40,20 @@ export class EmployeeService {
   }
 
   deleteEmployee(delEmp) {
-    const url = 'http://localhost:3000/emp/:email';
-    // const httpOptions = {
-    //   headers: new HttpHeaders({
-    //     'Content-Type':  'application/json'
-    //   })
-    // };
-    return this.http.delete(url, delEmp );
+    const url = 'http://localhost:3000/emp';
+
+    return this.http.delete(url + '/' + delEmp);
   }
+
+  getEmployee(delEmp) {
+    const url = 'http://localhost:3000/employee/user';
+    const body = {email: delEmp} 
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json'
+      }) }
+    console.log(delEmp);
+    return this.http.post(url,body,httpOptions);
+  }
+
 }
