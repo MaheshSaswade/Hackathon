@@ -4,7 +4,7 @@ import { Router } from '@angular/router'
 import { from } from 'rxjs';
 
 @Component({
-  selector: '  ',
+  selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
@@ -16,14 +16,14 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
 
-  login(event) {
+  login(event) { 
     event.preventDefault()
     const target = event.target
     const email = target.querySelector('#email').value
     const password = target.querySelector('#password').value
     this.Auth.getUserDetails(email, password).subscribe((response) => {
       let data = JSON.stringify(response)
-      let data1 = JSON.parse(data)
+      let data1 = JSON.parse(data) 
       if (data1.emp.empDesignation === "Hr") {
         alert("Welcome")
         this.router.navigate(['/hr-dash'])
