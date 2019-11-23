@@ -1,9 +1,38 @@
-<div class="card">
-    <div class="card-header">
-      <h3> <strong> All Reviews </strong> </h3>
-    </div>
-    <div class="card-body">
-      <h4 class="card-title">Special title treatment</h4>
-      <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+
+
+  
+<div class="container">
+    <button class="btn btn-success"  routerLink="/app-manage-emp">Home </button>
+
+    <div class="card">
+        <div class="card-header">
+          <h2> <strong> All Reviews</strong> </h2>
+        </div>
+        <div class="card-body">
+        <table class="table table-hover table-striped  table-bordered">
+          <thead>
+            <tr>
+              <th>Review ID</th>
+              <th>Review Type</th>
+              <th>Review DeadLine</th>
+            </tr> 
+          </thead>
+          <tbody>
+              <tr *ngFor="let review of reviews">
+           
+                    <td>{{review.review_id}}</td>
+                    <td>{{review.review_type}}</td>
+                    <td>{{review.deadline_date}}</td>
+              </tr>   
+          </tbody>
+      </table>
     </div>
   </div>
+      
+</div>
+
+
+
+    
+
+  
