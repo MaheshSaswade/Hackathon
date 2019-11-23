@@ -16,25 +16,25 @@
 
     <div class="container">
 
-        <form #deleteForm="ngForm" ngNativeValidate>
+        <form #deleteForm="ngForm" (ngSubmit)="onDelete(deleteForm)" ngNativeValidate>
             <div id="rcorners2">
                 <div class="mb-sm-3">
                    
                         <div class="col">
                             <label for="empId">Employee ID:</label>
-                            <input type="number" class="form-control" [(ngModel)]="empID" placeholder="Enter empId"
-                                name="empId" required>
+                            <input type="text" class="form-control" [(ngModel)]="empID" placeholder="Enter Employee ID"
+                    name="empID" required>
                         </div>
                     
                 </div>
                     <div class="mb-sm-3">
                         <div class="col">
                             <label for="name">Name:</label>
-                            <input type="name" class="form-control" [(ngModel)]="empName" placeholder="Enter name"
-                                name="name" pattern="^[a-zA-Z]*$" required>
+                            <input type="name" class="form-control" [(ngModel)]="empName" placeholder="Enter name" name="empName"
+                pattern="^[a-zA-Z]*$" required>
                         </div>
                     </div>
-                <button type="submit" (click)="onDelete(deleteForm)" class="btn btn-primary">Delete</button>
+                <button type="submit"  class="btn btn-primary">Delete</button>
             </div>
             
         </form>
@@ -42,3 +42,4 @@
 </body>
 
 </html>
+<!-- (click)="onDelete(deleteForm)" -->

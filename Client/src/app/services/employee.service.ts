@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, from } from 'rxjs';
 // import 'rxjs/add/operator/map';
 // import 'rxjs/add/operator/toPromise';
@@ -13,19 +13,39 @@ import { DeleteEmpComponent } from '../components/hr-dashboard/manage-emp/delete
 export class EmployeeService {
   selectedEmployee: CreateEmpComponent;
   employees: CreateEmpComponent[];
- readonly baseUrl = 'http//localhost:3000/employee';
+ readonly baseUrl = 'http://localhost:3000';
 
   constructor(private http: HttpClient) { }
 
-  postEmployee(emp: CreateEmpComponent) {
-    return this.http.post(this.baseUrl + 'employee', emp);
+  postEmployee(emp) {
+    //const body = {emp}
+    const url = 'http://localhost:3000/employee';
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json'
+      })
+    };
+    return this.http.post(url, emp, httpOptions);
+    //return this.http.post(this.baseUrl + 'employee',  body, httpOptions);
   }
 
-  putEmployee(upEmp: UpdateEmpComponent) {
-    return this.http.put(this.baseUrl + '/emp/:id', upEmp );
+  putEmployee(upEmp) {
+    const url = 'http://localhost:3000/emp/:id';
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json'
+      })
+    };
+    return this.http.put(url, upEmp, httpOptions );
   }
 
   deleteEmployee(delEmp) {
-    return this.http.delete(this.baseUrl + '/emp/:email', delEmp );
+    const url = 'http://localhost:3000/emp/:email';
+    // const httpOptions = {
+    //   headers: new HttpHeaders({
+    //     'Content-Type':  'application/json'
+    //   })
+    // };
+    return this.http.delete(url, delEmp );
   }
 }

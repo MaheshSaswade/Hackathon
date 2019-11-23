@@ -25,6 +25,7 @@ import { EmployeeService } from './services/employee.service';
 import { UpdateEmpComponent } from './components/hr-dashboard/manage-emp/update-emp/update-emp.component';
 import { DeleteEmpComponent } from './components/hr-dashboard/manage-emp/delete-emp/delete-emp.component';
 import { AppRoutingModule } from './app-routing.module';
+import { DatePipe } from '@angular/common';
 
 // const appRoutes: Routes =[
 //   {
@@ -134,7 +135,8 @@ import { AppRoutingModule } from './app-routing.module';
     BrowserAnimationsModule,
     AppRoutingModule
   ],
-  providers: [EmployeeService],
+  providers: [EmployeeService, DatePipe], 
+  
   bootstrap: [AppComponent, EmpDashboardComponent, LoginComponent],
   exports: [RouterModule]
 })

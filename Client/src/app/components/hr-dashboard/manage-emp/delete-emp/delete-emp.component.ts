@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { EmployeeService } from 'src/app/services/employee.service';
 import { NgForm } from '@angular/forms';
 
-declare var M: any;
+//declare var M: any;
 @Component({
   selector: 'app-delete-emp',
   templateUrl: './delete-emp.component.html',
@@ -17,9 +17,13 @@ export class DeleteEmpComponent implements OnInit {
 
   onDelete(delform: NgForm) {
     console.log('function call');
+    console.log(JSON.stringify(delform.value.empID));
+    console.log(JSON.stringify(delform.value.empName));
+
     this.empService.deleteEmployee(delform.value).subscribe((res => {
-      M.toast({ html: 'Deleted Successfully ', classes: 'rounded' });
+      //M.toast({ html: 'Deleted Successfully ', classes: 'rounded' });
+      console.log('Deleted');
     }));
-    console.log('Deleted');
+   
   }
 }

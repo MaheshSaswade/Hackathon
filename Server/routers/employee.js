@@ -26,7 +26,7 @@ router.patch('/emp/:id', async (req, res) =>
 })
 
 
-router.get('/employee',auth,async (req,res) => {
+router.get('/employee',async (req,res) => {
     try {
         const emps = await Employee.find({});
         console.log("emps",emps);
@@ -36,12 +36,13 @@ router.get('/employee',auth,async (req,res) => {
     }
 })
 
-router.post('/employee',async (req,res) => {
+router.post('/employee', async (req,res) => {
     const employee = new Employee(req.body)
-    try { 
+    try {
         await employee.save()
         res.send(employee)
-    } catch (error) {
+    } 
+    catch (error) {
         res.status(400).send(error)
     }
 })
@@ -94,7 +95,7 @@ router.patch('/employee/me',auth ,async (req, res) => {
 //     }
 // })
 
-router.delete('/emp/:email',auth, async (req, res) => {
+router.delete('/emp/:email', async (req, res) => {
     try {
        const emp = await Employee.findOneAndDelete(req.params.email)
         if (!emp) {
