@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
-import { CreateEmpComponent } from './components/create-emp/create-emp.component';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { InsertReviewComponent } from './components/review/insert-review/insert-review.component';
 import { CollapseModule } from 'ngx-bootstrap/collapse';
