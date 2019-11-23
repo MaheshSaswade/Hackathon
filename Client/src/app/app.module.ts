@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { RouterModule } from '@angular/router';
+import {  Routes , RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { from } from 'rxjs';
@@ -24,7 +24,44 @@ import { ManageReviewComponent } from './components/hr-dashboard/manage-review/m
 import { EmployeeService } from './services/employee.service';
 import { UpdateEmpComponent } from './components/hr-dashboard/manage-emp/update-emp/update-emp.component';
 import { DeleteEmpComponent } from './components/hr-dashboard/manage-emp/delete-emp/delete-emp.component';
+import { AppRoutingModule } from './app-routing.module';
 
+// const appRoutes: Routes =[
+//   {
+//     path: 'hr-dash',
+//     component : HrDashboardComponent,
+//     children: [{
+//       path: 'manage-emp',
+//       component : ManageEmpComponent,
+//       children: [
+//         { path: 'cerateEmp',
+//           component: CreateEmpComponent },
+//         { path: 'delete-emp',
+//           component: DeleteEmpComponent },
+//         { path : 'update-emp',
+//           component: UpdateEmpComponent }
+//       ]
+//     }]
+//   }
+// ]
+
+// const routes: Routes =[
+//   {
+//     path: 'hr-dash',
+//     component : HrDashboardComponent
+//   },
+//   {
+//     path: 'manage-emp',
+//     component : ManageEmpComponent
+//   },
+//   { 
+//     path: 'cerate-emp',
+//     component: CreateEmpComponent },
+//         { path: 'delete-emp',
+//           component: DeleteEmpComponent },
+//         { path : 'update-emp',
+//           component: UpdateEmpComponent }
+// ]
 @NgModule({
   declarations: [
     CreateEmpComponent,
@@ -47,8 +84,8 @@ import { DeleteEmpComponent } from './components/hr-dashboard/manage-emp/delete-
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    RouterModule.forRoot([
-    {
+    RouterModule.forRoot(
+   [ {
         path: 'login', component: LoginComponent
     },
     {
@@ -57,9 +94,22 @@ import { DeleteEmpComponent } from './components/hr-dashboard/manage-emp/delete-
     {
       path : 'emp-dash', component : EmpDashboardComponent
     },
-    {
-      path: 'hr-dash', component : HrDashboardComponent
-    },
+    // {
+    //   path: 'hr-dash',
+    //   component : HrDashboardComponent,
+    //   children: [{
+    //     path: 'manage-emp',
+    //     component : ManageEmpComponent,
+    //     children: [
+    //       { path: 'cerate-emp',
+    //         component: CreateEmpComponent },
+    //       { path: 'delete-emp',
+    //         component: DeleteEmpComponent },
+    //       { path : 'update-emp',
+    //         component: UpdateEmpComponent }
+    //     ]
+    //   }]
+    // },
     {
       path: 'viewprofile', component: ViewProfileComponent
     },
@@ -78,12 +128,21 @@ import { DeleteEmpComponent } from './components/hr-dashboard/manage-emp/delete-
     {
       path: 'managereview', component: ManageReviewComponent
     }
-  ]),
+  ]
+  ),
     CollapseModule.forRoot(),
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    AppRoutingModule
   ],
   providers: [EmployeeService],
-  bootstrap: [AppComponent, EmpDashboardComponent, LoginComponent]
+  bootstrap: [AppComponent, EmpDashboardComponent, LoginComponent],
+  exports: [RouterModule]
 })
 
 export class AppModule { }
+export const routingComponents = [  HrDashboardComponent,
+                                    ManageEmpComponent,
+                                    CreateEmpComponent,
+                                    DeleteEmpComponent,
+                                    UpdateEmpComponent ]
+
