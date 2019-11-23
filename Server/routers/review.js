@@ -3,6 +3,7 @@ const router =  new express.Router();
 const review = require('../models/review');
 const mongoose = require('mongoose');
 const auth = require('../middleware/auth')
+const cors = require('cors')
 
 //localhost:3000/rList
 router.get('/rList',(req, res) => {
@@ -40,12 +41,12 @@ router.post('/review',async (req, res) => {
 //localhost:3000/review1/101
 router.delete('/review1/:review_id', async (req, res) => {
     try {
-       const empReview = await review.findOneAndDelete(req.params.review_id)
+       const empReview = await review.findOneAndDelete({review_id:req.params.review_id})
         if (!empReview) {
             return res.status(404).send()
         }
 
-        console.log("Delete review")
+        console.log("Deleted review")
         res.send(empReview)
     } catch (e) {
         res.status(500).send()
@@ -67,17 +68,19 @@ router.delete('/review1/:review_id', async (req, res) => {
 //     })
     
 //localhost:3000/reviewUpdate/101
-router.patch('/reviewUpdate/:review_id', async (req, res) => 
+router.patch('/reviewUpdate/', cors(), async (req, res) => 
 {
-    const updates = Object.keys(req.body)
-    const allowedUpdates = ['review_type', ' skills', 'recommendation']
+    const review_id = req.body.review_id
+    const update_object = {'review_type': req.body.review_type, 'skills': req.body.skills , 'reviewer': req.body.reviewer, 'deadline_date': req.body.deadline_date }
+    const updates = Object.keys(update_object)
+    const allowedUpdates = ['review_type', 'skills', 'reviewer', 'deadline_date']
     const isValidOperation = updates.every((update) => allowedUpdates.includes(update))
     if (!isValidOperation) {
             return res.status(400).send({ error: 'Invalid updates!' })
     }
-    try 
+    try
     {
-            const reviewUpdate = await review.findOneAndUpdate(req.params.review_id, req.body, { new: true, runValidators: true })
+            const reviewUpdate = await review.findOneAndUpdate({review_id: review_id}, update_object, { new: true, runValidators: true })
             if (!reviewUpdate) {
                     return res.status(404).send()
             }

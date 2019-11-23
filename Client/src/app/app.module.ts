@@ -32,6 +32,8 @@ import { DeleteEmpComponent } from './components/hr-dashboard/manage-emp/delete-
 import { AppRoutingModule } from './app-routing.module';
 import { ReviewService } from './services/review.service';
 import { AuthService } from './services/auth.service';
+import { DeletereviewComponent } from './components/review/deletereview/deletereview.component';
+import { UpdateReviewComponent } from './components/review/update-review/update-review.component';
 
 // const appRoutes: Routes =[
 //   {
@@ -84,7 +86,9 @@ import { AuthService } from './services/auth.service';
     ManageEmpComponent,
     ManageReviewComponent,
     UpdateEmpComponent,
-    DeleteEmpComponent
+    DeleteEmpComponent,
+    DeletereviewComponent,
+    UpdateReviewComponent
   ],
   imports: [
     BsDatepickerModule.forRoot(),
@@ -106,22 +110,10 @@ import { AuthService } from './services/auth.service';
     {
       path : 'emp-dash', component : EmpDashboardComponent
     },
-    // {
-    //   path: 'hr-dash',
-    //   component : HrDashboardComponent,
-    //   children: [{
-    //     path: 'manage-emp',
-    //     component : ManageEmpComponent,
-    //     children: [
-    //       { path: 'cerate-emp',
-    //         component: CreateEmpComponent },
-    //       { path: 'delete-emp',
-    //         component: DeleteEmpComponent },
-    //       { path : 'update-emp',
-    //         component: UpdateEmpComponent }
-    //     ]
-    //   }]
-    // },
+    {
+      path: 'hr-dash',
+      component : HrDashboardComponent,
+    },
     {
       path: 'viewprofile', component: ViewProfileComponent
     },
@@ -139,6 +131,15 @@ import { AuthService } from './services/auth.service';
     },
     {
       path: 'managereview', component: ManageReviewComponent
+    },
+    {
+      path: 'managereview/createreview', component: InsertReviewComponent
+    },
+    {
+      path:'deletereview', component: DeletereviewComponent
+    },
+    {
+      path: 'updatereview', component: UpdateReviewComponent
     }
   ]
   ),
