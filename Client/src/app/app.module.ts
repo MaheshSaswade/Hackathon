@@ -7,7 +7,7 @@ import { FormsModule } from '@angular/forms';
 import { from } from 'rxjs';
 
 import { AppComponent } from './app.component';
-import { CreateEmpComponent } from './components/create-emp/create-emp.component';
+import { CreateEmpComponent } from './components/emp-dashboard/create-emp/create-emp.component';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { InsertReviewComponent } from './components/review/insert-review/insert-review.component';
 import { EmpDashboardComponent } from './components/emp-dashboard/emp-dashboard.component';
@@ -24,6 +24,8 @@ import { ManageReviewComponent } from './components/hr-dashboard/manage-review/m
 import { EmployeeService } from './services/employee.service';
 import { AppRoutingModule, routingComponent} from './RoutingModule/app.routing.module';
 import { EmployeeProfileService } from './services/employee-profile.service';
+import { UpdateEmpComponent } from './components/emp-dashboard/update-emp/update-emp.component';
+
 @NgModule({
   declarations: [
     CreateEmpComponent,
@@ -38,7 +40,8 @@ import { EmployeeProfileService } from './services/employee-profile.service';
     AllReviewsListComponent,
     ManageEmpComponent,
     ManageReviewComponent,
-    routingComponent    
+    routingComponent ,   
+    UpdateEmpComponent
   ],
   imports: [
     BsDatepickerModule.forRoot(),
@@ -49,6 +52,9 @@ import { EmployeeProfileService } from './services/employee-profile.service';
     RouterModule.forRoot([
     {
         path: 'login', component: LoginComponent
+    },
+    {
+        path: '', redirectTo: '/login', pathMatch: 'full'
     },
     {
       path : 'emp-dash', component : EmpDashboardComponent

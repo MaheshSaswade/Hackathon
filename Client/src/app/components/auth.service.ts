@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpHeaders, HttpClient } from '@angular/common/http'
+import { HttpHeaders, HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +10,6 @@ export class AuthService {
   constructor(private http: HttpClient) { }
 
   getUserDetails(email, password) {
-    alert('Hii')
     // post username and password to node server
     const url = 'http://localhost:3000/employee/login'
     const body = {email: email, password: password}

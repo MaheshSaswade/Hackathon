@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Update Employee</title>
+  <link rel="stylesheet" type="text/css" href="/Client/src/app/components/update-emp/update-emp.component.css">
+  
+</head>
+
+<body>
+    <div class = "page-header">
+      <div class="mb-sm-3">\
+        <h3>Update Employee</h3>
+      </div>
+      </div>
+    
+<div class="container">
+    
+<form #reg="ngForm"  (ngSubmit)="onsubmit1(reg)" ngNativeValidate>
+ <div id="rcorners2">
+  <div class="mb-sm-3">
+    
+      <div class="col">
+        <label for="designation" >Designation</label>
+        <input type="name" class="form-control" [(ngModel)]="designation" placeholder="Enter designation" name="designation" required>
+      
+      </div>
+  </div>
+  <div class="mb-sm-3">
+      <div class="col">
+        <label for="department" >Department Name</label>
+          <input type="text" class="form-control" [(ngModel)]="dept" placeholder="Enter department name" name="dept" required>
+      </div>
+  </div>
+  <div class="mb-sm-3">
+      <div class="col">
+        <label for="phn" >Phone Number</label>
+          <input type="text" class="form-control" [(ngModel)]="phn" placeholder="Enter phone number" name="phn" pattern="^\d{10}$"  required>
+      </div>
+    </div>
+    <div class="mb-sm-3">
+      <div class="col">
+        <label for="mgrId" >Manager ID</label>
+          <input type="text" class="form-control" [(ngModel)]="mgrId" placeholder="Enter Manager ID" name="mgrId" required>
+      </div>
+    </div>
+    <div class="mb-sm-3">
+      <div class="col">
+        <label for="password" >Password</label>
+          <input type="password" class="form-control" [(ngModel)]="password" placeholder="Enter password" name="password" required>
+      </div>
+    </div>
+         
+  
+ 
+ 
+    <div class="checkbox">
+      <label><input type="checkbox" name="remember"> Remember me</label>
+    </div>
+    <button type="submit" (click)="onEdit()" class="btn btn-primary" >Update</button>
+  </div>
+  </form>
+
+         
+        
+      
+ 
+  
+  
+</div>
+
+</body>
+</html>
