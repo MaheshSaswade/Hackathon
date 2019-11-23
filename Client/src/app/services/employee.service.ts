@@ -13,24 +13,24 @@ import { DeleteEmpComponent } from '../components/hr-dashboard/manage-emp/delete
 export class EmployeeService {
 
   private url = "http://localhost:3000/employee";
-  selectedEmployee: CreateEmpComponent;
-  employees: CreateEmpComponent[];
- readonly baseUrl = 'http//localhost:3000/employee';
+//   selectedEmployee: CreateEmpComponent;
+//   employees: CreateEmpComponent[];
+//  readonly baseUrl = 'http//localhost:3000/employee';
   
   constructor(private http: HttpClient) { }
 
   public  getemployees()  {
     return this.http.get(this.url)
   }
-  postEmployee(emp: CreateEmpComponent) {
-    return this.http.post(this.baseUrl + 'employee', emp);
-  }
+  // postEmployee(emp: CreateEmpComponent) {
+  //   return this.http.post(this.baseUrl + 'employee', emp);
+  // }
 
-  putEmployee(upEmp: UpdateEmpComponent) {
-    return this.http.put(this.baseUrl + '/emp/:id', upEmp );
-  }
+  // putEmployee(upEmp: UpdateEmpComponent) {
+  //   return this.http.put(this.baseUrl + '/emp/:id', upEmp );
+  // }
 
-  deleteEmployee(delEmp) {
-    return this.http.delete(this.baseUrl + '/emp/:email', delEmp );
-  }
+  // deleteEmployee(delEmp) {
+  //   return this.http.delete(this.baseUrl + '/emp/:email', delEmp );
+  // }
 }

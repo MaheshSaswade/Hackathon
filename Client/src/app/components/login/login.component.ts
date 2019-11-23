@@ -34,6 +34,7 @@ export class LoginComponent implements OnInit {
     })
     console.log(email, password)
 
+    
     // this.Auth.getUserDetails(email, password).subscribe(Error, (response) => {
     //   alert("Hello")
     //   let data = JSON.stringify(response)

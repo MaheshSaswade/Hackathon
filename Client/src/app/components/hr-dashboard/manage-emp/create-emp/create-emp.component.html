@@ -15,8 +15,8 @@
   </div>
 
   <div class="container">
-
-    <form #reg="ngForm" (ngSubmit)="onsubmit1(reg)" ngNativeValidate>
+    <!-- (ngSubmit)="onsubmit1(reg)" -->
+    <form #reg="ngForm"  (submit)="onsubmit1($event)" ngNativeValidate>
       <div id="rcorners2">
         <div class="mb-sm-3">
           <div class="form-row">
@@ -27,7 +27,7 @@
             </div>
             <div class="col">
               <label for="name">Name:</label>
-              <input type="name" class="form-control" [(ngModel)]="empName" placeholder="Enter name" name="name"
+              <input type="name" class="form-control" [(ngModel)]="empName" placeholder="Enter name" name="empName"
                 pattern="^[a-zA-Z]*$" required>
             </div>
           </div>
@@ -45,7 +45,7 @@
             <div class="col">
               <label for="designation">Designation</label>
               <input type="name" class="form-control" [(ngModel)]="empDesignation" placeholder="Enter designation"
-                name="designation" required>
+                name="empDesignation" required>
             </div>
 
 
@@ -60,12 +60,12 @@
           <div class="form-row">
             <div class="col">
               <label for="DOB">Date of Birth</label>
-              <input type="text" class="form-control" [(ngModel)]="empDOB" placeholder="Enter DOB" name="dob"
+              <input type="text" class="form-control" [(ngModel)]="empDOB" placeholder="Enter DOB" name="empDOB"
                 bsDatepicker required>
             </div>
             <div class="col">
               <label for="DOJ">Date of Joining</label>
-              <input type="text" class="form-control" [(ngModel)]="empDOJ" placeholder="Enter DOJ" name="doj"
+              <input type="text" class="form-control" [(ngModel)]="empDOJ" placeholder="Enter DOJ" name="empDOJ"
                 bsDatepicker required>
             </div>
           </div>
@@ -74,13 +74,13 @@
           <div class="form-row">
             <div class="col">
               <label for="phn">Phone Number</label>
-              <input type="text" class="form-control" [(ngModel)]="mobileNo" placeholder="Enter phone number" name="phn"
+              <input type="text" class="form-control" [(ngModel)]="mobileNo" placeholder="Enter phone number" name="mobileNo"
                 pattern="^\d{10}$" required>
             </div>
             <div class="col">
               <label for="mgrId">Manager ID</label>
               <input type="text" class="form-control" [(ngModel)]="managerID" placeholder="Enter Manager ID"
-                name="mgrId" required>
+                name="managerID" required>
             </div>
           </div>
         </div>
@@ -94,7 +94,7 @@
             <div class="col">
               <label for="department">Department Name</label>
               <input type="text" class="form-control" [(ngModel)]="empDepartment" placeholder="Enter department name"
-                name="dept" required>
+                name="empDepartment" required>
             </div>
           </div>
         </div>
