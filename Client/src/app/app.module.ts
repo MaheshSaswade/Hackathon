@@ -1,14 +1,26 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { CollapseModule } from 'ngx-bootstrap/collapse';
+import { Routes, RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { from } from 'rxjs';
+import { AngularMultiSelectModule } from 'angular2-multiselect-dropdown';
+import { MatSelectModule } from '@angular/material/select';
+import { MultiSelectModule } from '@syncfusion/ej2-angular-dropdowns';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+
 import { AppComponent } from './app.component';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { InsertReviewComponent } from './components/review/insert-review/insert-review.component';
-import { CollapseModule } from 'ngx-bootstrap/collapse';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 import { EmployeeService } from './services/employee.service';
 import { AppRoutingModule, routingComponent} from './RoutingModule/app.routing.module';
+import { EmpDashboardComponent } from './components/emp-dashboard/emp-dashboard.component';
+import { LoginComponent } from './components/login/login.component';
 import { HrDashboardComponent } from './components/hr-dashboard/hr-dashboard.component';
 import { ViewProfileComponent } from './components/view-profile/view-profile.component';
 import { ViewReviewsComponent } from './components/view-reviews/view-reviews.component';
@@ -16,9 +28,10 @@ import { ViewStatsComponent } from './components/hr-dashboard/view-stats/view-st
 import { AllReviewsListComponent } from './components/hr-dashboard/all-reviews-list/all-reviews-list.component';
 import { ManageEmpComponent } from './components/hr-dashboard/manage-emp/manage-emp.component';
 import { ManageReviewComponent } from './components/hr-dashboard/manage-review/manage-review.component';
-import { RouterModule } from '@angular/router';
-import { EmpDashboardComponent } from './components/emp-dashboard/emp-dashboard.component';
-import { LoginComponent } from './components/login/login.component';
+import { ReviewService } from './services/review.service';
+import { AuthService } from './services/auth.service';
+import { CreateEmpComponent } from './components/hr-dashboard/manage-emp/create-emp/create-emp.component';
+
 
 @NgModule({
   declarations: [
@@ -39,18 +52,25 @@ import { LoginComponent } from './components/login/login.component';
   imports: [
     BsDatepickerModule.forRoot(),
     BrowserModule,
+    MatSelectModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     AppRoutingModule,
-    RouterModule.forRoot([
-    {
+ 
+    AngularMultiSelectModule,
+    MultiSelectModule,
+    MatDatepickerModule,
+    RouterModule.forRoot(
+   [ {
         path: 'login', component: LoginComponent
     },
     {
       path : 'emp-dash', component : EmpDashboardComponent
     },
     {
-      path: 'hr-dash', component : HrDashboardComponent
+      path: 'hr-dash',
+      component : HrDashboardComponent
     },
     {
       path: 'viewprofile', component: ViewProfileComponent
@@ -69,14 +89,22 @@ import { LoginComponent } from './components/login/login.component';
     },
     {
       path: 'managereview', component: ManageReviewComponent
+    },
+    {
+      path: 'createreview', component: InsertReviewComponent
     }
-  ]),
+  ]
+  ),
     CollapseModule.forRoot(),
     BrowserAnimationsModule,
   ],
-  providers: [EmployeeService],
-  bootstrap: [AppComponent, EmpDashboardComponent, LoginComponent]
+  providers: [EmployeeService, ReviewService, AuthService],
+  bootstrap: [AppComponent, EmpDashboardComponent, LoginComponent],
+  exports: [RouterModule]
 })
 
 export class AppModule { }
+export const routingComponents = [  HrDashboardComponent,
+                                    ManageEmpComponent,
+                                    CreateEmpComponent ]
 

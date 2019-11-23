@@ -1,7 +1,8 @@
 const express = require('express')
 const Employee = require('../models/emp')
-const auth = require('../middleware/auth')
+const cors = require('cors')
 const mongoose = require('mongoose')
+const auth = require('../middleware/auth')
 const router = new express.Router()
 
 
@@ -26,7 +27,7 @@ router.patch('/emp/:id', async (req, res) =>
 })
 
 
-router.get('/employee',async (req,res) => {
+router.get('/employee', async (req,res) => {
     try {
         const emps = await Employee.find({});
         console.log("emps",emps);
@@ -46,7 +47,6 @@ router.post('/employee',async (req,res) => {
     }
 })
 
-
 router.get('/employee/me',auth ,async (req, res) => {
     res.send(req.emp)
 })
@@ -55,11 +55,11 @@ router.get('/employee/me',auth ,async (req, res) => {
 
 router.post('/employee/login', async(req, res) => {
     console.log("Welcome mahesh inside node js")
-    console.log(req.body.email)
     try {    
         const emp = await Employee.findByCred(req.body.email, req.body.password)
         const token = await emp.generateAuthToken();
-        res.send({ message: 'Logged in!', emp, token })
+        console.log(req.header)
+        res.status(200).send({ message: 'Logged in!', emp, token })
     } catch (error) {
         res.status(400).send({message : "Your email or password is wrong",error})
     }
@@ -108,11 +108,15 @@ router.delete('/emp/:email',auth, async (req, res) => {
 })
 
 // Logout
-router.post('/employee/logout',auth ,async(req, res) => {
+router.post('/employee/logout', async(req, res) => {
     try{
-        req.emp.token = "Logged out!"
-        const the = await req.emp.save()
-        res.send(req.emp)
+        console.log("Inside logout")
+        req.body.emp.token = "Logged Out!"
+        const email = req.body.emp.email
+        var emp = await Employee.find({email})
+        emp[0].token = ""
+        const data1= await emp[0].save()
+        res.send(emp)
     }catch (e) {
         res.status(500).send()
     }
