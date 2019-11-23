@@ -55,10 +55,10 @@ router.get('/employee/me',auth ,async (req, res) => {
 
 router.post('/employee/login', async(req, res) => {
     console.log("Welcome mahesh inside node js")
-    console.log(req.body.email)
     try {    
         const emp = await Employee.findByCred(req.body.email, req.body.password)
         const token = await emp.generateAuthToken();
+        console.log(req.header)
         res.status(200).send({ message: 'Logged in!', emp, token })
     } catch (error) {
         res.status(400).send({message : "Your email or password is wrong",error})
@@ -108,8 +108,9 @@ router.delete('/emp/:email',auth, async (req, res) => {
 })
 
 // Logout
-router.post('/employee/logout',auth ,async(req, res) => {
+router.post('/employee/logout' ,async(req, res) => {
     try{
+        console.log("Inside logout")
         req.emp.token = "Logged out!"
         const the = await req.emp.save()
         res.send(req.emp)

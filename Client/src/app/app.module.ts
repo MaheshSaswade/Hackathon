@@ -24,6 +24,7 @@ import { ManageReviewComponent } from './components/hr-dashboard/manage-review/m
 import { EmployeeService } from './services/employee.service';
 import { UpdateEmpComponent } from './components/emp-dashboard/update-emp/update-emp.component';
 
+
 @NgModule({
   declarations: [
     CreateEmpComponent,
