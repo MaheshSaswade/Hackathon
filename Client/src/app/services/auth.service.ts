@@ -10,7 +10,7 @@ import { from } from 'rxjs';
 export class AuthService {
   
     token: string;
-    emp: string;
+    emp: Object;
     data: Object;
   constructor(private http: HttpClient) { }
 
@@ -22,28 +22,15 @@ export class AuthService {
     return this.http.post(url, body, {headers})
   }
 
-
-  // getUserDetails(email, password) {
-  //   // post username and password to node server
-  //   const url = 'http://localhost:3000/employee/login'
-  //   const body = {email: email, password: password}
-
-  //   const httpOptions = {
-  //     headers: new HttpHeaders({
-  //       'Content-Type':  'application/json',
-  //     })
-  //   };
-
-  //   return this.http.post(url, body, httpOptions);
-  // }
-  // getLogout() {
-  //   const url = 'http://localhost:3000/employee/logout'
-  //   alert("delete")
-  //   const httpOptions = {
-  //     headers: new HttpHeaders({
-  //       'Content-Type':  'application/json'
-  //     })
-  //   };
-  //   return this.http.post(url,httpOptions)
-  // }
+  getLogout() {
+    const url = 'http://localhost:3000/employee/logout'
+    const body =  {emp :this.emp}
+    console.log("Employeee", body)
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json'
+      })
+    };
+    return this.http.post(url,body,httpOptions)
+  }
 }

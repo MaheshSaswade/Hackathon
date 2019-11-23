@@ -31,6 +31,7 @@ import { UpdateEmpComponent } from './components/hr-dashboard/manage-emp/update-
 import { DeleteEmpComponent } from './components/hr-dashboard/manage-emp/delete-emp/delete-emp.component';
 import { AppRoutingModule } from './app-routing.module';
 import { ReviewService } from './services/review.service';
+import { AuthService } from './services/auth.service';
 
 // const appRoutes: Routes =[
 //   {
@@ -105,22 +106,10 @@ import { ReviewService } from './services/review.service';
     {
       path : 'emp-dash', component : EmpDashboardComponent
     },
-    // {
-    //   path: 'hr-dash',
-    //   component : HrDashboardComponent,
-    //   children: [{
-    //     path: 'manage-emp',
-    //     component : ManageEmpComponent,
-    //     children: [
-    //       { path: 'cerate-emp',
-    //         component: CreateEmpComponent },
-    //       { path: 'delete-emp',
-    //         component: DeleteEmpComponent },
-    //       { path : 'update-emp',
-    //         component: UpdateEmpComponent }
-    //     ]
-    //   }]
-    // },
+    {
+      path: 'hr-dash',
+      component : HrDashboardComponent
+    },
     {
       path: 'viewprofile', component: ViewProfileComponent
     },
@@ -138,6 +127,9 @@ import { ReviewService } from './services/review.service';
     },
     {
       path: 'managereview', component: ManageReviewComponent
+    },
+    {
+      path: 'createreview', component: InsertReviewComponent
     }
   ]
   ),
@@ -145,7 +137,7 @@ import { ReviewService } from './services/review.service';
     BrowserAnimationsModule,
     AppRoutingModule
   ],
-  providers: [EmployeeService, ReviewService],
+  providers: [EmployeeService, ReviewService, AuthService],
   bootstrap: [AppComponent, EmpDashboardComponent, LoginComponent],
   exports: [RouterModule]
 })

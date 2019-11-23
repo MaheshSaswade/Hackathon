@@ -82,8 +82,7 @@ const empSchema = new mongoose.Schema({
         }
     },
     token:{
-        type: String,
-        default: ""    
+        type: String, 
     }
 })
 

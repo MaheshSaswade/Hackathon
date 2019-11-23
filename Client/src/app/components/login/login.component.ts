@@ -31,7 +31,9 @@ export class LoginComponent implements OnInit {
           let data1 = JSON.parse(data)
           this.Auth.token=data1.token
           console.log(this.Auth.token)
+          console.log("Welcome")
           this.Auth.emp =data1.emp
+          console.log(data1.emp)
               if (data1.emp.empDesignation === "Hr") {
                 
                 this.router.navigate(['/hr-dash'])
