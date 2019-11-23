@@ -65,7 +65,7 @@ router.post('/employee/login', async(req, res) => {
     }
 })
 
-router.patch('/employee/me',auth ,async (req, res) => {
+router.patch('/employee/me',auth,async (req, res) => {
     const updates = Object.keys(req.body)
     // const allowedUpdates = ['empDesignation', 'empDepartment', 'mobileNo', 'managerID','password']
     const allowedUpdates = ['mobileNo','password']

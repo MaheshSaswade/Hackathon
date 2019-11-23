@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-view-profile',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ViewProfileComponent implements OnInit {
 
-  constructor() { }
+  employee: Object;
+  constructor( private auth: AuthService) { }
 
   ngOnInit() {
+
+  alert(this.auth.emp)
+    this.employee = this.auth.emp
   }
 
 }

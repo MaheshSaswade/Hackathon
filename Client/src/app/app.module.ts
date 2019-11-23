@@ -30,7 +30,6 @@ import { ManageEmpComponent } from './components/hr-dashboard/manage-emp/manage-
 import { ManageReviewComponent } from './components/hr-dashboard/manage-review/manage-review.component';
 import { ReviewService } from './services/review.service';
 import { AuthService } from './services/auth.service';
-import { CreateEmpComponent } from './components/hr-dashboard/manage-emp/create-emp/create-emp.component';
 
 
 @NgModule({
@@ -66,6 +65,9 @@ import { CreateEmpComponent } from './components/hr-dashboard/manage-emp/create-
         path: 'login', component: LoginComponent
     },
     {
+      path: '', redirectTo: '/login', pathMatch: 'full'
+  },
+    {
       path : 'emp-dash', component : EmpDashboardComponent
     },
     {
@@ -93,6 +95,7 @@ import { CreateEmpComponent } from './components/hr-dashboard/manage-emp/create-
     {
       path: 'createreview', component: InsertReviewComponent
     }
+   
   ]
   ),
     CollapseModule.forRoot(),
@@ -105,6 +108,6 @@ import { CreateEmpComponent } from './components/hr-dashboard/manage-emp/create-
 
 export class AppModule { }
 export const routingComponents = [  HrDashboardComponent,
-                                    ManageEmpComponent,
-                                    CreateEmpComponent ]
+                                    ManageEmpComponent
+                                    ]
 

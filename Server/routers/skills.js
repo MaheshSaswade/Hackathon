@@ -15,7 +15,6 @@ router.post('/skills',async (req,res) => {
         res.status(400).send(error)
     }
 })
-
 // View all skills
 
 router.get('/skills', async (req,res) => {
