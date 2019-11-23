@@ -31,6 +31,7 @@ import { UpdateEmpComponent } from './components/hr-dashboard/manage-emp/update-
 import { DeleteEmpComponent } from './components/hr-dashboard/manage-emp/delete-emp/delete-emp.component';
 import { AppRoutingModule } from './app-routing.module';
 import { ReviewService } from './services/review.service';
+import { AuthService } from './services/auth.service';
 
 // const appRoutes: Routes =[
 //   {
@@ -145,7 +146,7 @@ import { ReviewService } from './services/review.service';
     BrowserAnimationsModule,
     AppRoutingModule
   ],
-  providers: [EmployeeService, ReviewService],
+  providers: [EmployeeService, ReviewService, AuthService],
   bootstrap: [AppComponent, EmpDashboardComponent, LoginComponent],
   exports: [RouterModule]
 })
