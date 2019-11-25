@@ -7,7 +7,6 @@ const empSchema = new mongoose.Schema({
     empID:{
         type: Number,
         required: true,
-        trim: true,
         unique: true    
     },
     empName:{
