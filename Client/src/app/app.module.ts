@@ -32,7 +32,6 @@ import { DeleteEmpComponent } from './components/hr-dashboard/manage-emp/delete-
 import { AppRoutingModule } from './app-routing.module';
 import { ReviewService } from './services/review.service';
 <<<<<<< HEAD
-<<<<<<< HEAD
 import { AuthService } from './services/auth.service';
 import { DeletereviewComponent } from './components/review/deletereview/deletereview.component';
 import { UpdateReviewComponent } from './components/review/update-review/update-review.component';
@@ -40,8 +39,6 @@ import { DatePipe } from '@angular/common';
 import { EmpDashboardModule } from './components/emp-dashboard/emp-dashboard.module';
 import { HrDashboardModule } from './components/hr-dashboard/hr-dashboard.module';
 import { ManageEmpModule } from './components/hr-dashboard/manage-emp/manage-emp.module';
-=======
->>>>>>> parent of ea71afd... authentication complete
 =======
 >>>>>>> parent of ea71afd... authentication complete
 
@@ -76,14 +73,11 @@ import { ManageEmpModule } from './components/hr-dashboard/manage-emp/manage-emp
       path : 'emp-dash', component : EmpDashboardComponent
     },
 <<<<<<< HEAD
-<<<<<<< HEAD
     {
       path: 'hr-dash',
       component : HrDashboardComponent,
     },
 =======
-=======
->>>>>>> parent of ea71afd... authentication complete
     // {
     //   path: 'hr-dash',
     //   component : HrDashboardComponent,
@@ -100,9 +94,6 @@ import { ManageEmpModule } from './components/hr-dashboard/manage-emp/manage-emp
     //     ]
     //   }]
     // },
-<<<<<<< HEAD
->>>>>>> parent of ea71afd... authentication complete
-=======
 >>>>>>> parent of ea71afd... authentication complete
     {
       path: 'viewprofile', component: ViewProfileComponent
@@ -122,7 +113,6 @@ import { ManageEmpModule } from './components/hr-dashboard/manage-emp/manage-emp
     {
       path: 'managereview', component: ManageReviewComponent
 <<<<<<< HEAD
-<<<<<<< HEAD
     },
     {
       path: 'managereview/createreview', component: InsertReviewComponent
@@ -137,8 +127,6 @@ import { ManageEmpModule } from './components/hr-dashboard/manage-emp/manage-emp
       path: 'createreview', component: InsertReviewComponent
 =======
 >>>>>>> parent of ea71afd... authentication complete
-=======
->>>>>>> parent of ea71afd... authentication complete
     }
   ]
   ),
@@ -147,11 +135,7 @@ import { ManageEmpModule } from './components/hr-dashboard/manage-emp/manage-emp
     AppRoutingModule
   ],
 <<<<<<< HEAD
-<<<<<<< HEAD
   providers: [EmployeeService, ReviewService, AuthService,DatePipe],
-=======
-  providers: [EmployeeService, ReviewService],
->>>>>>> parent of ea71afd... authentication complete
 =======
   providers: [EmployeeService, ReviewService],
 >>>>>>> parent of ea71afd... authentication complete
