@@ -34,6 +34,7 @@ import { ReviewService } from './services/review.service';
 import { AuthService } from './services/auth.service';
 import { DeletereviewComponent } from './components/review/deletereview/deletereview.component';
 import { UpdateReviewComponent } from './components/review/update-review/update-review.component';
+import { DatePipe } from '@angular/common';
 
 // const appRoutes: Routes =[
 //   {
@@ -150,7 +151,7 @@ import { UpdateReviewComponent } from './components/review/update-review/update-
     BrowserAnimationsModule,
     AppRoutingModule
   ],
-  providers: [EmployeeService, ReviewService, AuthService],
+  providers: [EmployeeService, ReviewService, AuthService,DatePipe],
   bootstrap: [AppComponent, EmpDashboardComponent, LoginComponent],
   exports: [RouterModule]
 })

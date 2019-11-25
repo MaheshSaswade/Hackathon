@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { EmployeeService } from 'src/app/services/employee.service';
 import { NgForm } from '@angular/forms';
 
-declare var M: any;
+
+//declare var M: any;
 @Component({
   selector: 'app-delete-emp',
   templateUrl: './delete-emp.component.html',
@@ -10,16 +11,20 @@ declare var M: any;
 })
 export class DeleteEmpComponent implements OnInit {
 
+
   constructor(private empService: EmployeeService) { }
 
   ngOnInit() {
   }
 
   onDelete(delform: NgForm) {
-    console.log('function call');
-    this.empService.deleteEmployee(delform.value).subscribe((res => {
-      M.toast({ html: 'Deleted Successfully ', classes: 'rounded' });
+   
+    const email = delform.value.email
+    console.log(email)
+
+ this.empService.deleteEmployee(email).subscribe((res => {
+      console.log('Deleted');
     }));
-    console.log('Deleted');
+   
   }
 }

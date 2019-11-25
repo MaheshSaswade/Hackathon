@@ -15,8 +15,10 @@ export class UpdateEmpComponent implements OnInit {
   ngOnInit() { }
 
   onEdit(regform: NgForm) {
+    console.log('update function call');
     this.empService.putEmployee(regform.value).subscribe((res => {
-    M.toast({ html: 'Updated Successfully ', classes: 'rounded'});
+      console.log('Updated Successfully ');
+  //  M.toast({ html: 'Updated Successfully ', classes: 'rounded'});
     }));
   }
 }

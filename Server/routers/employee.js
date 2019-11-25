@@ -39,15 +39,31 @@ router.get('/employee', async (req,res) => {
 
 router.post('/employee', async (req,res) => {
     const employee = new Employee(req.body)
-    try { 
+    try {
         await employee.save()
         res.send(employee)
-    } catch (error) {
+    } 
+    catch (error) {
         res.status(400).send(error)
     }
 })
 
-router.get('/employee/me',auth ,async (req, res) => {
+router.get('/employee/:email',  async (req, res) => {
+    try{
+       
+        console.log(req.params.email)
+        const empDetails = await Employee.findOne({'email':req.params.email})
+        if(empDetails){ res.send(empDetails) }
+        else { console.log('Error in retriving review')}
+    }catch(error){
+        res.status(500).send()
+
+    }
+})
+
+
+
+router.get('/employee/me' ,async (req, res) => {
     res.send(req.emp)
 })
 
@@ -94,7 +110,7 @@ router.patch('/employee/me',auth ,async (req, res) => {
 //     }
 // })
 
-router.delete('/emp/:email',auth, async (req, res) => {
+router.delete('/emp/:email', async (req, res) => {
     try {
        const emp = await Employee.findOneAndDelete(req.params.email)
         if (!emp) {
