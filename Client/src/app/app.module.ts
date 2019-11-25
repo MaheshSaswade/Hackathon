@@ -30,6 +30,8 @@ import { ManageEmpComponent } from './components/hr-dashboard/manage-emp/manage-
 import { ManageReviewComponent } from './components/hr-dashboard/manage-review/manage-review.component';
 import { ReviewService } from './services/review.service';
 import { AuthService } from './services/auth.service';
+import { DeletereviewComponent } from './components/review/deletereview/deletereview.component';
+import { UpdateReviewComponent } from './components/review/update-review/update-review.component';
 
 
 @NgModule({
@@ -47,6 +49,10 @@ import { AuthService } from './services/auth.service';
     ManageEmpComponent,
     ManageReviewComponent,
     routingComponent    
+    UpdateEmpComponent,
+    DeleteEmpComponent,
+    DeletereviewComponent,
+    UpdateReviewComponent
   ],
   imports: [
     BsDatepickerModule.forRoot(),
@@ -72,7 +78,7 @@ import { AuthService } from './services/auth.service';
     },
     {
       path: 'hr-dash',
-      component : HrDashboardComponent
+      component : HrDashboardComponent,
     },
     {
       path: 'viewprofile', component: ViewProfileComponent
@@ -91,6 +97,15 @@ import { AuthService } from './services/auth.service';
     },
     {
       path: 'managereview', component: ManageReviewComponent
+    },
+    {
+      path: 'managereview/createreview', component: InsertReviewComponent
+    },
+    {
+      path:'deletereview', component: DeletereviewComponent
+    },
+    {
+      path: 'updatereview', component: UpdateReviewComponent
     },
     {
       path: 'createreview', component: InsertReviewComponent
