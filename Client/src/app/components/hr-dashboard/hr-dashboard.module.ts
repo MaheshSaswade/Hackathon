@@ -4,15 +4,14 @@ import { HrDashboardComponent } from './hr-dashboard.component';
 import { AllReviewsListComponent } from './all-reviews-list/all-reviews-list.component';
 import { ManageEmpComponent } from './manage-emp/manage-emp.component';
 import { ManageReviewComponent } from './manage-review/manage-review.component';
-import { ViewStatsComponent } from './view-stats/view-stats.component';
 
 
 
 @NgModule({
-  declarations: [AllReviewsListComponent, ManageReviewComponent, ViewStatsComponent],
+  declarations: [AllReviewsListComponent, ManageReviewComponent],
   imports: [
     CommonModule
   ],
-  exports: [AllReviewsListComponent, ManageReviewComponent, ViewStatsComponent]
+  exports: [AllReviewsListComponent, ManageReviewComponent]
 })
 export class HrDashboardModule { }

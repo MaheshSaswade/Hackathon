@@ -16,6 +16,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { AppComponent } from './app.component';
 import { CreateEmpComponent } from './components/hr-dashboard/manage-emp/create-emp/create-emp.component';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import { InsertReviewComponent } from './components/review/insert-review/insert-review.component';
 import { EmpDashboardComponent } from './components/emp-dashboard/emp-dashboard.component';
 import { LoginComponent } from './components/login/login.component';
 import { HrDashboardComponent } from './components/hr-dashboard/hr-dashboard.component';
@@ -31,6 +32,8 @@ import { DeleteEmpComponent } from './components/hr-dashboard/manage-emp/delete-
 import { AppRoutingModule } from './app-routing.module';
 import { ReviewService } from './services/review.service';
 import { AuthService } from './services/auth.service';
+import { DeletereviewComponent } from './components/review/deletereview/deletereview.component';
+import { UpdateReviewComponent } from './components/review/update-review/update-review.component';
 import { DatePipe } from '@angular/common';
 import { EmpDashboardModule } from './components/emp-dashboard/emp-dashboard.module';
 import { HrDashboardModule } from './components/hr-dashboard/hr-dashboard.module';
@@ -88,7 +91,18 @@ import { ManageEmpModule } from './components/hr-dashboard/manage-emp/manage-emp
     {
       path: 'managereview', component: ManageReviewComponent
     },
-    
+    {
+      path: 'managereview/createreview', component: InsertReviewComponent
+    },
+    {
+      path:'deletereview', component: DeletereviewComponent
+    },
+    {
+      path: 'updatereview', component: UpdateReviewComponent
+    },
+    {
+      path: 'createreview', component: InsertReviewComponent
+    }
   ]
   ),
     CollapseModule.forRoot(),

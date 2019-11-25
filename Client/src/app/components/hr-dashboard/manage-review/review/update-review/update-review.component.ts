@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ReviewService } from '../../../../../services/review.service'
+import { ReviewService } from '../../../services/review.service'
 
 @Component({
   selector: 'app-update-review',
