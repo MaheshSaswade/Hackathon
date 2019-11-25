@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterModule, Router } from '@angular/router';
-import { AuthService } from '../../services/auth.service';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-emp-dashboard',
@@ -14,11 +14,11 @@ export class EmpDashboardComponent implements OnInit {
   ngOnInit() {
   }
 
-  onLogout() {
-    this.Auth.getLogout().subscribe(response => {
-      alert("You are successfully logout")
-      this.router.navigate(['/login'])
-    })
-  }
+  // onLogout() {
+  //   this.Auth.getLogout().subscribe(response => {
+  //     alert("You are successfully logout")
+  //     this.router.navigate(['/login'])
+  //   })
+  // }
 
 }

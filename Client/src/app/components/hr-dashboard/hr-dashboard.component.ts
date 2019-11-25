@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { RouterModule, Router } from '@angular/router';
-import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-hr-dashboard',
@@ -9,16 +7,9 @@ import { AuthService } from '../../services/auth.service';
 })
 export class HrDashboardComponent implements OnInit {
 
-  constructor(private router: Router, private Auth:AuthService) { }
+  constructor() { }
 
   ngOnInit() {
   }
 
-  onLogout() {
-    alert("logout")
-    this.Auth.getLogout().subscribe(response => {
-      alert("You are successfully logout")
-      this.router.navigate(['/login'])
-    })
-  }
 }

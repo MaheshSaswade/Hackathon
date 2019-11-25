@@ -1,7 +1,6 @@
 const express = require('express')
 const Employee = require('../models/emp')
 const cors = require('cors')
-const mongoose = require('mongoose')
 const auth = require('../middleware/auth')
 const router = new express.Router()
 
@@ -124,15 +123,12 @@ router.delete('/emp/:email', async (req, res) => {
 })
 
 // Logout
-router.post('/employee/logout', async(req, res) => {
+router.post('/employee/logout' ,async(req, res) => {
     try{
         console.log("Inside logout")
-        req.body.emp.token = "Logged Out!"
-        const email = req.body.emp.email
-        var emp = await Employee.find({email})
-        emp[0].token = ""
-        const data1= await emp[0].save()
-        res.send(emp)
+        req.emp.token = "Logged out!"
+        const the = await req.emp.save()
+        res.send(req.emp)
     }catch (e) {
         res.status(500).send()
     }

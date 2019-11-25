@@ -3,7 +3,6 @@ const router =  new express.Router();
 const review = require('../models/review');
 const mongoose = require('mongoose');
 const auth = require('../middleware/auth')
-const cors = require('cors')
 
 //localhost:3000/rList
 router.get('/rList',(req, res) => {
@@ -26,7 +25,7 @@ router.get('/rlist/:review_id', auth, async (req, res) => {
 })
 
 //localhost:3000/review
-router.post('/review',cors(), auth, async (req, res) => {
+router.post('/review',async (req, res) => {
     console.log('in post');
     const review1 = new review(req.body)
     try{

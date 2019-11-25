@@ -1,7 +1,13 @@
 import { Injectable } from '@angular/core';
+<<<<<<< HEAD
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, from} from 'rxjs';
 import { AuthService } from './auth.service'
+=======
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { AuthService } from '../components/auth.service'
+>>>>>>> parent of ea71afd... authentication complete
 // import 'rxjs/add/operator/map';
 // import 'rxjs/add/operator/toPromise';
 import { CreateEmpComponent } from '../components/hr-dashboard/manage-emp/create-emp/create-emp.component';

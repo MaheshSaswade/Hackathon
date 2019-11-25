@@ -1,13 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpHeaders, HttpClient } from '@angular/common/http'
-import { AuthService } from '../services/auth.service'
 
 @Injectable({
   providedIn: 'root'
 })
 export class ReviewService {
 
-  constructor(private http: HttpClient, private Auth: AuthService) { }
+  constructor(private http: HttpClient) { }
 
   getEmployees() {
     // get employee list object from server
@@ -33,17 +32,11 @@ export class ReviewService {
     
     const httpOptions = {
       headers: new HttpHeaders({
-        'Content-Type':  'application/json',
-        'Authorization': 'Bearer ' + this.Auth.token
+        'Content-Type':  'application/json'
       })
     };
-    if(this.Auth.token){
-      return this.http.post(url, body, httpOptions).subscribe((data) => { console.log(data) });
-    }
-    else{
-      throw new Error('Please Login first')
-    }
-   
+    
+    return this.http.post(url, body, httpOptions).subscribe((data) => { console.log(data) });
   }
 
   delete_review(review_id){
