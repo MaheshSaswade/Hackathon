@@ -40,7 +40,7 @@ router.post('/review',async (req, res) => {
 //localhost:3000/review1/101
 router.delete('/review1/:review_id', async (req, res) => {
     try {
-       const empReview = await review.findOneAndDelete(req.params.review_id)
+       const empReview = await review.findOneAndDelete({review_id:req.params.review_id})
         if (!empReview) {
             return res.status(404).send()
         }

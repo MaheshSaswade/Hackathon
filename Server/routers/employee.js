@@ -111,7 +111,7 @@ router.patch('/employee/me',auth ,async (req, res) => {
 
 router.delete('/emp/:email', async (req, res) => {
     try {
-       const emp = await Employee.findOneAndDelete(req.params.email)
+       const emp = await Employee.findOneAndDelete({email:req.params.email})
         if (!emp) {
             return res.status(404).send()
         }
