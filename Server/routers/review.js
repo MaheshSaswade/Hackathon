@@ -26,7 +26,7 @@ router.get('/rlist/:review_id', auth, async (req, res) => {
 })
 
 //localhost:3000/review
-router.post('/review',async (req, res) => {
+router.post('/review',cors(), auth, async (req, res) => {
     console.log('in post');
     const review1 = new review(req.body)
     try{

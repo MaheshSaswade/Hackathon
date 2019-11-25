@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, from } from 'rxjs';
+import { Observable } from 'rxjs';
+import { AuthService } from './auth.service'
 // import 'rxjs/add/operator/map';
 // import 'rxjs/add/operator/toPromise';
 import { CreateEmpComponent } from '../components/hr-dashboard/manage-emp/create-emp/create-emp.component';
@@ -11,7 +12,6 @@ import { UpdateEmpComponent } from '../components/hr-dashboard/manage-emp/update
   providedIn: 'root'
 })
 export class EmployeeService {
-  constructor(private http: HttpClient) { }
 
 
   selectedEmployee: CreateEmpComponent;

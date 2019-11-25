@@ -3,6 +3,7 @@ const Employee = require('../models/emp')
 
 const auth = async (req,res,next) => {
     try { 
+        console.log("Inside authorization")
             const token = req.header('Authorization').replace('Bearer ','');
             const decoded = jwt.verify(token,'WeAreMiracalWorkers!');
             const emp = await Employee.findOne({_id: decoded._id, 'token': token})
@@ -16,5 +17,6 @@ const auth = async (req,res,next) => {
         res.status(401).send({error : "Please Authenticate"})
     }
 }
+
 
 module.exports = auth

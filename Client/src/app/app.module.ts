@@ -140,6 +140,9 @@ import { UpdateReviewComponent } from './components/review/update-review/update-
     },
     {
       path: 'updatereview', component: UpdateReviewComponent
+    },
+    {
+      path: 'createreview', component: InsertReviewComponent
     }
   ]
   ),
