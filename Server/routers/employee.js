@@ -5,19 +5,17 @@ const mongoose = require('mongoose')
 const router = new express.Router()
 
 
-router.patch('/emp/:email', async (req, res) => 
+router.patch('/emp/:id', async (req, res) => 
 {
     const updates = Object.keys(req.body)
-    console.log(updates)
-    console.log(req.body)
-    const allowedUpdates = ['empDesignation', 'empDepartment', 'mobileNo', 'managerID', 'password']
+    const allowedUpdates = ['empDesignation', 'empDepartment', 'mobileNo', 'managerID','password']
     const isValidOperation = updates.every((update) => allowedUpdates.includes(update))
     if (!isValidOperation) {
             return res.status(400).send({ error: 'Invalid updates!' })
     }
     try 
     {
-            const emp = await employee.findByIdAndUpdate({email: req.params.email}, req.body, { new: true, runValidators: true })
+            const emp = await employee.findByIdAndUpdate(req.params.id, req.body, { new: true, runValidators: true })
             if (!emp) {
                     return res.status(404).send()
             }
@@ -49,14 +47,13 @@ router.post('/employee', async (req,res) => {
     }
 })
 
-router.post('/employee/user',  async (req, res) => {
+router.get('/employee/:email',  async (req, res) => {
     try{
-        console.log("Hiii")
-        console.log(req.body.email)
-        const empDetails = await Employee.findOne({'email':req.body.email})
+       
+        console.log(req.params.email)
+        const empDetails = await Employee.findOne({'email':req.params.email})
         if(empDetails){ res.send(empDetails) }
         else { console.log('Error in retriving review')}
-
     }catch(error){
         res.status(500).send()
 
@@ -114,8 +111,7 @@ router.patch('/employee/me',auth ,async (req, res) => {
 
 router.delete('/emp/:email', async (req, res) => {
     try {
-        console.log("Delete employee from database")
-       const emp = await Employee.findOneAndDelete({"email": req.params.email})
+       const emp = await Employee.findOneAndDelete(req.params.email)
         if (!emp) {
             return res.status(404).send()
         }
