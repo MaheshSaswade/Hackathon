@@ -4,7 +4,7 @@ const review = require('../models/review');
 const mongoose = require('mongoose');
 const auth = require('../middleware/auth')
 
-//localhost:3000/rList
+//localhost:3000/rList (retrive all review)
 router.get('/rList',(req, res) => {
     review.find((err, data) => {
         if(!err) { res.send(data); }
@@ -12,10 +12,10 @@ router.get('/rList',(req, res) => {
     });
 });
 
-//localhost:3000/rlist/101
+//localhost:3000/rlist/101 (retirve review bt id)
 router.get('/rlist/:review_id', auth, async (req, res) => {
     try{
-        const empReview = await review.findOne(req.params.review_id)
+        const empReview = await review.findOne({review_id:req.params.review_id})
         if(empReview){ res.send(empReview) }
         else { console.log('Error in retriving review')}
     }catch(error){
@@ -24,7 +24,7 @@ router.get('/rlist/:review_id', auth, async (req, res) => {
     }
 })
 
-//localhost:3000/review
+//localhost:3000/review (create reviwe)
 router.post('/review',async (req, res) => {
     console.log('in post');
     const review1 = new review(req.body)
@@ -37,7 +37,7 @@ router.post('/review',async (req, res) => {
     }
 });
 
-//localhost:3000/review1/101
+//localhost:3000/review1/101 (delete review by id)
 router.delete('/review1/:review_id', async (req, res) => {
     try {
        const empReview = await review.findOneAndDelete({review_id:req.params.review_id})
@@ -66,7 +66,7 @@ router.delete('/review1/:review_id', async (req, res) => {
 //         }
 //     })
     
-//localhost:3000/reviewUpdate/101
+//localhost:3000/reviewUpdate/101 (update review byid)
 router.patch('/reviewUpdate/:review_id', async (req, res) => 
 {
     const updates = Object.keys(req.body)
@@ -77,7 +77,7 @@ router.patch('/reviewUpdate/:review_id', async (req, res) =>
     }
     try 
     {
-            const reviewUpdate = await review.findOneAndUpdate(req.params.review_id, req.body, { new: true, runValidators: true })
+            const reviewUpdate = await review.findOneAndUpdate({review_id:req.params.review_id}, req.body, { new: true, runValidators: true })
             if (!reviewUpdate) {
                     return res.status(404).send()
             }
