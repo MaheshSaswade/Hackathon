@@ -138,5 +138,4 @@ router.post('/employee/logout', async(req, res) => {
     }
 })
 
-
 module.exports = router
