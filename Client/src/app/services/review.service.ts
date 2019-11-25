@@ -37,6 +37,7 @@ export class ReviewService {
     };
     
     return this.http.post(url, body, httpOptions).subscribe((data) => { console.log(data) });
+<<<<<<< HEAD
   }
 
   delete_review(review_id){
@@ -52,6 +53,8 @@ export class ReviewService {
     const url = 'http://localhost:3000/reviewUpdate'
     const body = {review_id: review_id, review_type: review_type, skills: selectSkills, reviewer: selectedItems, deadline_date:deadline} 
     return this.http.patch(url, body).subscribe((data) => { console.log(data) });
+=======
+>>>>>>> parent of ea71afd... authentication complete
   }
 
 }
