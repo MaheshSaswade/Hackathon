@@ -1,0 +1,54 @@
+<div class="card">
+    <div class="card-header">
+        <h3>Create Review</h3>
+      </div>
+  <div class="card-body">
+    
+    <form id="create_review" (submit)="create_review($event)">
+
+      <div class="form-group">
+        <label for="review_type"> <strong> Review Type </strong></label>
+        <select  id="review_type" class="form-control" placeholder="select type">
+          <option value="" disabled hidden>select type</option>
+          <option value="Employee">Employee</option>
+          <option value="Manager">Manager</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+          <mat-form-field >
+              <mat-label> <strong> Skills </strong></mat-label>
+              <mat-select id="skills" [(ngModel)]="selectSkills" name="select_skills" multiple>
+                <mat-option *ngFor="let skill of skillList" [value]="skill">
+                  {{skill}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+      </div>
+
+      <div class="form-group">
+        <mat-form-field >
+          <mat-label> <strong> Employees </strong></mat-label>
+          <mat-select id ="reviewer" [(ngModel)]="selectedItems" name="select_emp" multiple>
+            <mat-option *ngFor="let emp of empList" [value]="emp">
+              {{emp}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div class="form-group">
+          <label for="deadline"> <strong> Deadline </strong></label>
+          <input type="text" id="deadline" placeholder="Datepicker" class="form-control" bsDatepicker />
+      </div>
+
+      <!-- <div class="form-group">
+          <label for="recommendation"> <strong>Recommedations</strong></label>
+          <textarea type="text" id="recommendation" placeholder="Recommedations..." class="form-control"></textarea>
+      </div> -->
+
+      <button type="submit" class="btn btn-lg btn-success center"> Submit </button>
+
+    </form>
+  </div>
+</div>

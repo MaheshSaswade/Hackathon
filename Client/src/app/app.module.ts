@@ -20,8 +20,8 @@ import { InsertReviewComponent } from './components/review/insert-review/insert-
 import { EmpDashboardComponent } from './components/emp-dashboard/emp-dashboard.component';
 import { LoginComponent } from './components/login/login.component';
 import { HrDashboardComponent } from './components/hr-dashboard/hr-dashboard.component';
-import { ViewProfileComponent } from './components/view-profile/view-profile.component';
-import { ViewReviewsComponent } from './components/view-reviews/view-reviews.component';
+import { ViewProfileComponent } from './components/emp-dashboard/view-profile/view-profile.component';
+import { ViewReviewsComponent } from './components/emp-dashboard/view-reviews/view-reviews.component';
 import { ViewStatsComponent } from './components/hr-dashboard/view-stats/view-stats.component';
 import { AllReviewsListComponent } from './components/hr-dashboard/all-reviews-list/all-reviews-list.component';
 import { ManageEmpComponent } from './components/hr-dashboard/manage-emp/manage-emp.component';
@@ -35,61 +35,16 @@ import { AuthService } from './services/auth.service';
 import { DeletereviewComponent } from './components/review/deletereview/deletereview.component';
 import { UpdateReviewComponent } from './components/review/update-review/update-review.component';
 import { DatePipe } from '@angular/common';
+import { EmpDashboardModule } from './components/emp-dashboard/emp-dashboard.module';
+import { HrDashboardModule } from './components/hr-dashboard/hr-dashboard.module';
+import { ManageEmpModule } from './components/hr-dashboard/manage-emp/manage-emp.module';
 
-// const appRoutes: Routes =[
-//   {
-//     path: 'hr-dash',
-//     component : HrDashboardComponent,
-//     children: [{
-//       path: 'manage-emp',
-//       component : ManageEmpComponent,
-//       children: [
-//         { path: 'cerateEmp',
-//           component: CreateEmpComponent },
-//         { path: 'delete-emp',
-//           component: DeleteEmpComponent },
-//         { path : 'update-emp',
-//           component: UpdateEmpComponent }
-//       ]
-//     }]
-//   }
-// ]
-
-// const routes: Routes =[
-//   {
-//     path: 'hr-dash',
-//     component : HrDashboardComponent
-//   },
-//   {
-//     path: 'manage-emp',
-//     component : ManageEmpComponent
-//   },
-//   { 
-//     path: 'cerate-emp',
-//     component: CreateEmpComponent },
-//         { path: 'delete-emp',
-//           component: DeleteEmpComponent },
-//         { path : 'update-emp',
-//           component: UpdateEmpComponent }
-// ]
 @NgModule({
   declarations: [
-    CreateEmpComponent,
-    AppComponent,
-    InsertReviewComponent,
+    AppComponent, 
     EmpDashboardComponent,
     LoginComponent,
     HrDashboardComponent,
-    ViewProfileComponent,
-    ViewReviewsComponent,
-    ViewStatsComponent,
-    AllReviewsListComponent,
-    ManageEmpComponent,
-    ManageReviewComponent,
-    UpdateEmpComponent,
-    DeleteEmpComponent,
-    DeletereviewComponent,
-    UpdateReviewComponent
   ],
   imports: [
     BsDatepickerModule.forRoot(),
@@ -101,6 +56,9 @@ import { DatePipe } from '@angular/common';
     AngularMultiSelectModule,
     MultiSelectModule,
     MatDatepickerModule,
+    EmpDashboardModule,
+    HrDashboardModule,
+    ManageEmpModule,
     RouterModule.forRoot(
    [ {
         path: 'login', component: LoginComponent
